@@ -1,0 +1,11 @@
+{
+  "style": "mz-block-v1",
+  "status": "READY_FOR_REVIEW",
+  "distribution": {
+    "status": "APPROVED_FOR_SKILL_OPERATION",
+    "license": "MZ Reference Asset License 1.0"
+  },
+  "source": "Original 2026-08-11 MZ block calibration; final contact sheet normalized from verified transparent icon slices.",
+  "concepts": ["home", "works", "notes", "about", "code", "ideas", "experiments", "archive", "contact"],
+  "constraints": ["MZ palette only", "orthographic three-quarter camera", "matte crayon faces", "no third-party assets or motifs"]
+}

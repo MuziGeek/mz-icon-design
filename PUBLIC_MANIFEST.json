@@ -1,0 +1,19 @@
+{
+  "format": "mz.public-skill/1",
+  "version": "1.0.0",
+  "repository": "MuziGeek/mz-icon-design",
+  "treeHashAlgorithm": "sha256(sorted payload-relative-path + tab + normalized-file-sha256 + LF)",
+  "licenses": {
+    "code": "MIT",
+    "referenceAssets": "MZ Reference Asset License 1.0"
+  },
+  "skill": {
+    "id": "mz-icon-design",
+    "directory": "mz-icon-design",
+    "treeHash": "5200ce26e4184ff463703f2f1e3e3905ff6f070524be084217210959940e5684"
+  },
+  "release": {
+    "tag": "v1.0.0",
+    "artifactChecksumAlgorithm": "sha256"
+  }
+}

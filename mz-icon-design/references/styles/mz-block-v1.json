@@ -1,0 +1,8 @@
+{
+  "name": "mz-block-v1",
+  "label": "MZ Block V1",
+  "preamble": "Low-density original MZ block spot icons: small counts of large rectilinear blocks, a fixed orthographic three-quarter camera, matte wax-crayon faces, uneven deep-navy outlines, and broad flat MZ colours. Calm and crafted, never polished acrylic.",
+  "palette": ["#FDF6E9", "#062446", "#FBBC0E", "#D54902", "#6B6659"],
+  "sheet": {"size": 1254, "grid": 4, "background": "#808080", "defaultCount": 9},
+  "construction": {"camera": "orthographic three-quarter isometric", "module": "shared coarse block module", "detailBudget": "one metaphor and two to five large blocks or faces", "stroke": "uneven deep-navy wax-crayon outline", "material": "matte flat crayon texture", "shadow": "none or a weak local contact cue only", "prohibitions": ["polished acrylic", "edge shine", "Oreo-derived palette", "third-party motifs", "logos", "text"]}
+}

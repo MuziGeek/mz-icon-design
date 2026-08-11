@@ -1,0 +1,4 @@
+interface:
+  display_name: "MZ Icon Design System"
+  short_description: "Create and validate MZ SVG and spot icon systems"
+  default_prompt: "Use $mz-icon-design to create an MZ icon set for this product context."

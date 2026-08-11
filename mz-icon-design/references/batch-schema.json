@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "mz.icon-batch/1",
+  "type": "object",
+  "required": ["schema", "status", "mode", "style", "concepts", "output", "validation"],
+  "properties": {
+    "schema": {"const": "mz.icon-batch/1"},
+    "status": {"enum": ["DRAFT", "VALIDATION_FAILED", "GENERATION_BLOCKED", "READY_FOR_REVIEW"]},
+    "mode": {"enum": ["svg", "spot"]},
+    "style": {"enum": ["mz-line-v1", "mz-crayon-v2", "mz-block-v1"]},
+    "concepts": {"type": "array", "minItems": 1, "maxItems": 16, "items": {"type": "string", "minLength": 1}},
+    "output": {"type": "object", "required": ["directory", "files"], "properties": {"directory": {"type": "string"}, "files": {"type": "array", "minItems": 1, "items": {"type": "object", "required": ["path", "sha256"], "properties": {"path": {"type": "string"}, "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}}}}}},
+    "validation": {"type": "object"}
+  }
+}

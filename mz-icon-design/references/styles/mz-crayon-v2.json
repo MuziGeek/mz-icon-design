@@ -1,0 +1,8 @@
+{
+  "name": "mz-crayon-v2",
+  "label": "MZ Crayon V2",
+  "preamble": "Restrained hand-drawn wax-crayon spot icons with uneven deep-navy outlines, simple organic shapes, flat mustard bodies, warm-white openings, tiny semantic rust-red accents only, and visible dry wax grain. Calm, mature and handmade rather than childish. No cast shadow, tile, badge, gradient, or detached decoration.",
+  "palette": ["#FDF6E9", "#062446", "#FBBC0E", "#D54902", "#6B6659"],
+  "sheet": {"size": 1254, "grid": 4, "background": "#808080", "defaultCount": 9},
+  "construction": {"grid": "24-unit keyline; live area about 72%; generous equal padding", "stroke": "uneven deep-navy wax-crayon outline; thick rounded outer contour is visually heaviest", "angles": "flat front-facing geometry with at most an 8-degree organic tilt", "detailBudget": "one metaphor and no more than four meaningful parts", "fill": "limited flat wax-crayon fills with dry grain", "perspective": "flat front-facing", "motif": "no detached decorative mark"}
+}

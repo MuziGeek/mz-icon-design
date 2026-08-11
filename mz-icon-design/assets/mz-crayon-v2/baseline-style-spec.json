@@ -1,0 +1,29 @@
+{
+  "name": "muzi-crayon-v2",
+  "label": "Muzi 蜡笔手绘 V2",
+  "preamble": "Restrained hand-drawn wax-crayon spot icons with uneven deep-navy outlines, simple organic shapes, flat mustard bodies, warm-white openings, tiny semantic rust-red accents only, and visible dry wax grain. Calm, mature and handmade rather than childish. No cast shadow, no tile, no badge, no gradient and no detached decorative ticks.",
+  "palette": [
+    "#FDF6E9",
+    "#062446",
+    "#FBBC0E",
+    "#D54902",
+    "#6B6659"
+  ],
+  "cutout": "floodfill",
+  "thresh": 24,
+  "construction": {
+    "grid": "24-unit keyline; live area about 72%; generous equal padding; optical sizing",
+    "stroke": "uneven deep-navy wax-crayon outline; thick rounded outer contour remains the visually heaviest element",
+    "corner_radius": "one soft organic radius language across all objects",
+    "angles": "flat front-facing geometry with only a slight organic tilt within 8 degrees",
+    "detail_budget": "one metaphor per icon; no more than four meaningful parts; matched abstraction across the set",
+    "fill_rule": "limited flat wax-crayon fills inside the navy outline; visible dry wax grain; no continuous shading or gradient",
+    "color_rule": "deep navy for outlines, mustard for the main body, warm white for openings, gray-brown for small support details; rust red only for an icon-specific semantic detail such as the contact seal",
+    "shared_parts": "reuse the same block proportions, paper corner, envelope flap and Muzi portrait silhouette whenever a related part recurs",
+    "perspective": "flat front-facing spot icon",
+    "shadow": "none",
+    "motif": "no detached decorative mark; consistency comes from navy wax outlines, mustard fill and dry crayon grain"
+  },
+  "fits": "Personal portfolio section markers and large spot illustrations at 48–96px.",
+  "notes": "Revision requested by the user: remove every upper-right rust-red brush tick. About uses a simplified Muzi bust with dark shoulder-length hair and sunglasses resting on the head, not a generic mustard long-hair silhouette."
+}

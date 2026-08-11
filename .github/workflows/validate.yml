@@ -1,0 +1,23 @@
+name: Validate mz-icon-design
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+    tags: ["v*"]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r mz-icon-design/scripts/requirements.txt
+      - run: python tools/validate_public.py
+      - run: python mz-icon-design/scripts/test_mz_icon_design.py
+      - run: git diff --check
