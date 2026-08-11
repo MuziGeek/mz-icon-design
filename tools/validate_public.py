@@ -65,7 +65,8 @@ def normalized_bytes(path: Path) -> bytes:
 
 def tree_hash() -> str:
     rows: list[str] = []
-    for path in sorted(item for item in PAYLOAD.rglob("*") if item.is_file()):
+    paths = (item for item in repository_files() if PAYLOAD in item.parents)
+    for path in sorted(paths, key=lambda item: item.relative_to(PAYLOAD).as_posix()):
         relative = path.relative_to(PAYLOAD).as_posix()
         digest = hashlib.sha256(normalized_bytes(path)).hexdigest()
         rows.append(f"{relative}\t{digest}\n")
