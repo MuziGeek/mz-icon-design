@@ -1,0 +1,22 @@
+{
+  "format": "mz.style-preset/1",
+  "id": "mz-block-v1",
+  "label": "MZ Block V1",
+  "family": "voxel",
+  "version": "1.0.0",
+  "status": "APPROVED_FOR_SKILL_OPERATION",
+  "profiles": ["icon-spot"],
+  "allowedModifiers": ["mz-quiet-v1", "mz-warm-v1", "mz-handcrafted-v1"],
+  "rules": {
+    "identity": ["quiet", "human", "digital", "crafted"],
+    "geometry": "coarse original rectilinear modules with an orthographic three-quarter camera",
+    "stroke": "uneven deep-navy wax-crayon outline",
+    "color": {"paper": "#FDF6E9", "ink": "#062446", "mustard": "#FBBC0E", "rust": "#D54902", "neutral": "#6B6659"},
+    "texture": "matte flat crayon faces",
+    "composition": "two to five large blocks or faces and one visual metaphor",
+    "depth": "orthographic three-quarter",
+    "detailBudget": "low density; no detached decorative motif",
+    "avoid": ["polished acrylic", "edge shine", "realistic light", "text", "logos", "third-party motifs"]
+  },
+  "goldens": {"status": "APPROVED_FOR_SKILL_OPERATION", "manifest": "assets/goldens/manifest.json", "keys": ["block-icon-sheet"]}
+}

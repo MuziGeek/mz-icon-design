@@ -1,6 +1,6 @@
 {
   "format": "mz.public-skill/1",
-  "version": "1.0.0",
+  "version": "1.3.0",
   "repository": "MuziGeek/mz-icon-design",
   "treeHashAlgorithm": "sha256(sorted payload-relative-path + tab + normalized-file-sha256 + LF)",
   "licenses": {
@@ -10,10 +10,14 @@
   "skill": {
     "id": "mz-icon-design",
     "directory": "mz-icon-design",
-    "treeHash": "1a40ef68ed2d0c494dc3631b4b1806f14953de6c6f47467ad67e45c8bbc8c56b"
+    "treeHash": "23c1316642ad3d7c68bb3d6720ad771a06f2754dbd68a825d99bff7252b595e9"
+  },
+  "visualEngine": {
+    "version": "1.2.0",
+    "snapshotHash": "814ca7b969d317bb0d0e45f0f276fb1317e88eeeb63d05431643c32ae4df70cb"
   },
   "release": {
-    "tag": "v1.0.0",
+    "tag": "v1.3.0",
     "artifactChecksumAlgorithm": "sha256"
   }
 }

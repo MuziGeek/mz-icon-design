@@ -1,0 +1,38 @@
+{
+  "format": "mz.style-preset/1",
+  "id": "mz-colorblock-v1",
+  "label": "MZ Colorblock V1",
+  "family": "colorblock",
+  "version": "1.1.0",
+  "status": "APPROVED_FOR_SKILL_OPERATION",
+  "profiles": ["icon-spot"],
+  "allowedModifiers": ["mz-quiet-v1", "mz-warm-v1"],
+  "lineage": {
+    "method": "method-derived-original-rules",
+    "sources": ["oil-icon"],
+    "excluded": ["upstream assets", "palette", "paths", "prompts", "motifs"]
+  },
+  "rules": {
+    "identity": ["clear", "playful", "restrained"],
+    "geometry": "original rounded two-dimensional colour-block silhouettes with controlled corners",
+    "stroke": "none",
+    "color": {
+      "ink": "#062446",
+      "mustard": "#FBBC0E",
+      "rust": "#D54902",
+      "maximumChromaticBlocks": 3,
+      "tonalModelling": {"targetPercent": [8, 12], "maximumPercent": 12, "direction": "upper-left to lower-right"}
+    },
+    "texture": "none",
+    "composition": "one clear metaphor with compact interlocking colour regions",
+    "depth": "shallow tonal modelling",
+    "detailBudget": "one metaphor and up to four meaningful parts",
+    "avoid": ["strong gradients", "outlines", "fourth accent colour", "cast shadows", "ambient occlusion", "specular highlights", "material texture", "3D extrusion", "text", "logos", "third-party motifs"]
+  },
+  "goldens": {
+    "status": "APPROVED_FOR_SKILL_OPERATION",
+    "reviewManifestSha256": "c32a8ea230d11e1e520e68b706cd99f06f1512cc1306a746f8842acfd19b052d",
+    "contactSheet": "assets/goldens/mz-colorblock-v1/contact-sheet.png",
+    "reason": "Version 1.1.0 nine-concept shallow-tonal spot benchmark approved by hash-bound user review."
+  }
+}

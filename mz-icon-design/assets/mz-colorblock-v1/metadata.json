@@ -1,0 +1,28 @@
+{
+  "format": "mz.golden-asset-set/1",
+  "style": "mz-colorblock-v1",
+  "status": "APPROVED_FOR_SKILL_OPERATION",
+  "distribution": {
+    "status": "APPROVED_FOR_SKILL_OPERATION",
+    "license": "MZ Reference Asset License 1.0"
+  },
+  "approval": {
+    "engineVersion": "1.2.0",
+    "reviewManifestSha256": "c32a8ea230d11e1e520e68b706cd99f06f1512cc1306a746f8842acfd19b052d"
+  },
+  "source": "Original MZ Colorblock calibration: nine independently generated, chroma-key-normalized and palette-normalized 512px icons with bounded shallow tonal modelling; no third-party asset, palette, path, prompt, or visual signature is distributed.",
+  "concepts": ["home", "works", "notes", "about", "code", "ideas", "experiments", "archive", "contact"],
+  "files": {
+    "icons/about.png": "182F8015EA738AF9B05A1B2B7451EE2EF3B2F54CE5D3B1C517679F0A0CD10A3B",
+    "icons/archive.png": "34782C7EA3C9E7786B64293F3217BD062676836063FA483E9C5D45AB03373013",
+    "icons/code.png": "F5FEC4802786B5865949BDE9FCF6AFA3AD0B67C10EF3930FD43A1FB827CFF7C5",
+    "icons/contact.png": "956C49D04A7AE5E6D5326338341419CDC5AF754DCDD7DDACEFE69214CE9E5DC3",
+    "icons/experiments.png": "522C5E2EB26FF71FEEDC4E1E8D31FF3C49ECAD6B77429450BF85417B5D8A2971",
+    "icons/home.png": "F268A45F7F30DC73176EDFC6D544E4A48B875DBC29724A179F1A836143F94624",
+    "icons/ideas.png": "BACA4FCE3A40DA47B4FDB68757CDEC810C01D183495DA24CEB7DB613E6B5C9F2",
+    "icons/notes.png": "9FF86FE29892F34FCA00D24E2810B2874ED5E59445304356366E9F61674BB5EE",
+    "icons/works.png": "89BC1647AB0ECB60265D56249693267EC5971C8B27EDC20D75564E21410DD843",
+    "contact-sheet.png": "0BAE95A855BDE7B2793A6AA8E7E1EBF24D7F6BF7D40B4302D5573C2F57CE8EAD"
+  },
+  "constraints": ["maximum three MZ chromatic blocks", "8-12% shallow tonal modelling", "no outlines, shadows, material texture, or 3D extrusion"]
+}

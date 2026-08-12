@@ -1,0 +1,18 @@
+{
+  "format": "mz.contract-catalog/1",
+  "contracts": {
+    "mz.intent/1": {"required": ["format", "request", "asset", "style"]},
+    "mz.style-source/1": {"required": ["format", "id", "repository", "commit", "license", "auditedFiles", "allowed", "prohibited", "notice"]},
+    "mz.style-adapter/1": {"required": ["format", "id", "sourceId", "upstreamStyle", "targetPreset", "profiles", "status", "capabilities", "originalityBoundary"]},
+    "mz.style-preset/1": {"required": ["format", "id", "label", "family", "version", "status", "profiles", "rules", "allowedModifiers"]},
+    "mz.style-modifier/1": {"required": ["format", "id", "axis", "version", "allowedPresets", "allowedProfiles", "patch"]},
+    "mz.asset-profile/1": {"required": ["format", "id", "target", "supportedPresets", "hardConstraints"]},
+    "mz.visual-brief/1": {"required": ["format", "engineVersion", "status", "request", "intent", "asset", "style", "target", "generation", "provenance"]},
+    "mz.evaluation/1": {"required": ["format", "status", "checks"]},
+    "mz.engine-snapshot/1": {"required": ["format", "engineVersion", "target", "files", "snapshotHash"]}
+  },
+  "statuses": ["RESOLVED", "STYLE_CONFLICT", "UNSUPPORTED_ASSET", "UNSUPPORTED_COMBINATION", "INVALID_INPUT"],
+  "presetStatuses": ["REGISTERED", "READY_FOR_REVIEW", "APPROVED_FOR_SKILL_OPERATION", "RETIRED"],
+  "adapterStatuses": ["MAPPED_TO_EXISTING", "CANDIDATE", "REGISTERED"],
+  "evaluationStatuses": ["pass", "warn", "fail", "not_applicable"]
+}

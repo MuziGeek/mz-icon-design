@@ -1,0 +1,21 @@
+{
+  "style": "mz-soft-3d-v1",
+  "status": "READY_FOR_REVIEW",
+  "distribution": {"status": "APPROVED_FOR_SKILL_OPERATION", "license": "MZ Reference Asset License 1.0"},
+  "approval": {"reviewManifestSha256": "bbc68b543bbb2b06a106b3142b6bccdbfb6b2a8f127bd316ced8aa5edc9f9088", "engineVersion": "1.2.0"},
+  "source": "Original MZ Soft 3D calibration: nine independent 1024px chroma-key renders normalized to transparent 512px PNGs; no third-party asset, palette, prompt, or material signature is distributed.",
+  "concepts": ["home", "works", "notes", "about", "code", "ideas", "experiments", "archive", "contact"],
+  "files": {
+    "about.png": "020E2F40C8BB505FA7DE52B2298C5902B8487964FA9CDB2C11C6B1EBDEFA93D6",
+    "archive.png": "A505B0AD6CAB816522C0EC1F1C50444BBE423AFD91C59C8C558A46E913514AAA",
+    "code.png": "0D2B920BD8B15F3D8A0ABE3D173451123755E88BE4568DFA336FB9FDBFD6F211",
+    "contact.png": "D71456E4C85E9867AF0C91770F05F2BDEAEF9D39E7F1BCF9149789213DF7F526",
+    "experiments.png": "F3639E79F698D3A1939140D13098358B33AEEEC84E73436F3FD1CA183DF7B121",
+    "home.png": "BD55E55AE39E1F947B7745C78E51BF27EAF6803CC46D5247DD3B79DC64670FC2",
+    "ideas.png": "DA9F8A69139526BDFE288E6F66D89709BCD90D0414A62A43241819B4DB2AA337",
+    "notes.png": "83CBE252C6EA3992C92A562009984D00FB06D4B332BDA534C348D0637AD054DA",
+    "works.png": "7BD8E9475018541DD716BFA8AEF665FED80C9B21748A203B747B3BC6A82B37A1",
+    "contact-sheet.png": "1457B52C3829235486D6F917820F9123A45719363EDE56E371206D42B6AA125B"
+  },
+  "constraints": ["one original compact soft-three-quarter object", "matte opaque material", "no glass, metal glare, ground shadow, text, logos, or third-party material signature"]
+}

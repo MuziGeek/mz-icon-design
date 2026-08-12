@@ -1,0 +1,14 @@
+{
+  "format": "mz.style-source/1",
+  "id": "oil-icon",
+  "repository": "https://github.com/oil-oil/oil-icon",
+  "commit": "c347a5c37e48d083076bc7c42a4845db5d9e55f6",
+  "license": "MIT",
+  "auditedFiles": [
+    {"path": "LICENSE", "sha256": "d44a3ca218007a85d3be41a0b76553d746e42336c7a63c6c6687d2619199c3c4"},
+    {"path": "SKILL.md", "sha256": "da255986fdb24b4550404068d95a3a72612002a4974f66ab0fa42fcec409cad4"}
+  ],
+  "allowed": ["method analysis", "rule-derived original implementations", "attribution"],
+  "prohibited": ["upstream example images", "upstream assets", "exact prompts", "exact palettes", "upstream motifs"],
+  "notice": "oil-oil/oil-icon, Copyright (c) 2026 oil-oil, MIT License."
+}

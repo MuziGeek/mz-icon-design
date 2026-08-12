@@ -1,0 +1,153 @@
+{
+  "format": "mz.engine-snapshot/1",
+  "engineVersion": "1.2.0",
+  "target": "icon",
+  "sourceCatalogHash": "aff0b457985263f3447a71feb32e72f0f5310a7b0191adeccb7b336ea5a6da58",
+  "files": [
+    {
+      "path": "schemas/mz-contracts-v1.json",
+      "sha256": "6c7adb62cc6dbc39083e617a49324810f7d1f9d4fcc96ea8b76a63cda152ef2d"
+    },
+    {
+      "path": "references/core.md",
+      "sha256": "2cd977c2566af992237f0f78487f83c03e1ea838526f8c7010446e6b82a39fad"
+    },
+    {
+      "path": "references/contracts.md",
+      "sha256": "e86204ae9f1c5d4e31f81fa4e96349b03ff7c8b2c647463fb222b84cda772dbd"
+    },
+    {
+      "path": "references/evaluation.md",
+      "sha256": "e9ef6de5e1f81382cbebe1793ad54e9601e5d5905f68f4d740b95643907d0902"
+    },
+    {
+      "path": "scripts/engine_lib.py",
+      "sha256": "0f7ca729385b1e9ff0f7eb249e0e104acab9ab2fa16e118666b66c1a1fa55b1d"
+    },
+    {
+      "path": "scripts/verify_snapshot.py",
+      "sha256": "29dc7d033ca57a0a7fa517abd86c2b294699688e6e1d781833d9dca60a1c8f91"
+    },
+    {
+      "path": "styles/presets/mz-animal-badge-v1.json",
+      "sha256": "1dd52f3b0cee95b78fa3cc881248a6eb057cba8733e21e83e4ab901857805a5f"
+    },
+    {
+      "path": "styles/presets/mz-block-v1.json",
+      "sha256": "93022a6021a0654ab9d25bd39f3b852a77f945ff61512db34005b9d077e32100"
+    },
+    {
+      "path": "styles/presets/mz-cartoon-v1.json",
+      "sha256": "7eb2b70a5de57773ba120e58a058b66fc7977f3417e29157d25d323a1b307ca4"
+    },
+    {
+      "path": "styles/presets/mz-colorblock-v1.json",
+      "sha256": "4812058405358525286c36966308db830a4591cffa5bfd5a3ff9c4ec05e7a92d"
+    },
+    {
+      "path": "styles/presets/mz-crayon-v2.json",
+      "sha256": "d9d0883924a5a5349a5a9c3e6e9a55f02f016f3035ef53ec6398653dedf69188"
+    },
+    {
+      "path": "styles/presets/mz-filled-v1.json",
+      "sha256": "0c04d49d70904d2aeea904c4725911fb7dedd5d6e1fce9b4ba19b842ad974328"
+    },
+    {
+      "path": "styles/presets/mz-isometric-v1.json",
+      "sha256": "2ddb93723f0a990c46ad19126b05ed1ed994596a0787418936286591aef2f308"
+    },
+    {
+      "path": "styles/presets/mz-line-v1.json",
+      "sha256": "3ea874349b5ad276a1619d226a3b090aae22e6751f04d4010dde544ab8768d67"
+    },
+    {
+      "path": "styles/presets/mz-realistic-v1.json",
+      "sha256": "0bf05fdaecda4fb847d186541fb47fd96edf9f3cdc5d89f767efe181b16b39c5"
+    },
+    {
+      "path": "styles/presets/mz-soft-3d-v1.json",
+      "sha256": "c2bc8c7bd102dbb4627298a073ed45cbaa164990cb4086507c49376a2a0f427e"
+    },
+    {
+      "path": "styles/presets/mz-sticker-v1.json",
+      "sha256": "c8b2f173b2cc079d7bf6fc8b231753323d34eb66d7233b636cbdbeb0d55b8b74"
+    },
+    {
+      "path": "styles/presets/mz-voxel-macro-v1.json",
+      "sha256": "27b45d836cf52c5f2cf42150eccb037ac67a4a8c16f28c52f8cbd9bc87048f20"
+    },
+    {
+      "path": "styles/modifiers/mz-handcrafted-v1.json",
+      "sha256": "89ea31dbd0292dee9591e469896ac78a64cccd724161a45f2b5d2c9c246d3d9b"
+    },
+    {
+      "path": "styles/modifiers/mz-quiet-v1.json",
+      "sha256": "4b678d2c06f8d94632cec3f2d355ed571b9f99f784a1d0a981ccd82c92cf747d"
+    },
+    {
+      "path": "styles/modifiers/mz-warm-v1.json",
+      "sha256": "961f596145a93a2eedc0c617341aca06f8a475b6f0150b89abbc641b26b7887e"
+    },
+    {
+      "path": "profiles/icon-spot.json",
+      "sha256": "45f3d9d07d16caf58eddc03e4a1282355421b7d9c940385d8fc7fd80d6e556f6"
+    },
+    {
+      "path": "profiles/icon-ui.json",
+      "sha256": "c2a7169a6bb8974d1fd246e8560eade4070a4b0d23c34f92687c194d93080dda"
+    },
+    {
+      "path": "sources/oil-icon.json",
+      "sha256": "890d9e8e6f2fff7d6786930f6bf2a68e216d30ec6a44d3b848c1bfe419967610"
+    },
+    {
+      "path": "sources/voxel-icon.json",
+      "sha256": "245ec7de83dc5b723511ba2816e21b043c8e122bbda4a82260c99a7efcd076a8"
+    },
+    {
+      "path": "styles/adapters/oil-animal-badge.json",
+      "sha256": "429c21425e886249f9a6c538dc3c0e64d67418841dce18898f53c1926ee4b061"
+    },
+    {
+      "path": "styles/adapters/oil-cartoon.json",
+      "sha256": "9e0949802021a33350c148764f3fe453a30264d72b06d5c9bf8bda084b6e42bb"
+    },
+    {
+      "path": "styles/adapters/oil-colorblock.json",
+      "sha256": "6e3c809d92a314b19c4265b04c5f73a2c624dbbd8a6eefb8b9c16ab5989aca24"
+    },
+    {
+      "path": "styles/adapters/oil-filled.json",
+      "sha256": "99591198e1520de15d1fbe1d83795c13ebece7792e9273f5914908c10dc03d6c"
+    },
+    {
+      "path": "styles/adapters/oil-isometric.json",
+      "sha256": "1ebd6beec907fb5d82e0bb6ea619171042550acb1d7c7c65f6cf89018a4b9d07"
+    },
+    {
+      "path": "styles/adapters/oil-linear.json",
+      "sha256": "b83b704f7901bf4f3cac52b4c01947d618837c5a49dad1df4d20194181ce4284"
+    },
+    {
+      "path": "styles/adapters/oil-realistic.json",
+      "sha256": "da4dd25fce80f90ae7ecec3fbf628d9a785506ebef27d5768242d709a89f1d62"
+    },
+    {
+      "path": "styles/adapters/oil-render3d.json",
+      "sha256": "4e7244f80ed962e3c6e2ec7f3f3aeee8720268c751d2fb2bb787b99ad7fc04ae"
+    },
+    {
+      "path": "styles/adapters/oil-sticker.json",
+      "sha256": "1000feb85cdac3fed01c2326f0b2c05ad2642b13b0879b8cdfd136385907fcf1"
+    },
+    {
+      "path": "styles/adapters/voxel-macro.json",
+      "sha256": "9ecaeab2eda4bed4c2499741997f4f588c435529ace181d68c600ed812b50cbc"
+    },
+    {
+      "path": "references/third-party-notices.md",
+      "sha256": "ee1d0ecdef78d073832d1151f6b3bf57973bbf52305fa9ee6149af426e9dc279"
+    }
+  ],
+  "snapshotHash": "814ca7b969d317bb0d0e45f0f276fb1317e88eeeb63d05431643c32ae4df70cb"
+}

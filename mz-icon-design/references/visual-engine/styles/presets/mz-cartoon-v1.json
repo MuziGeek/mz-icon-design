@@ -1,0 +1,13 @@
+{
+  "format": "mz.style-preset/1",
+  "id": "mz-cartoon-v1",
+  "label": "MZ Cartoon V1",
+  "family": "cartoon",
+  "version": "1.1.0",
+  "status": "APPROVED_FOR_SKILL_OPERATION",
+  "profiles": ["icon-spot"],
+  "allowedModifiers": ["mz-quiet-v1", "mz-warm-v1"],
+  "lineage": {"method": "method-derived-original-rules", "sources": ["oil-icon"], "excluded": ["upstream assets", "characters", "poses", "palettes", "paths", "prompts", "motifs"]},
+  "rules": {"identity": ["friendly", "clear", "restrained"], "geometry": "one original rounded two-dimensional silhouette with controlled deep-navy outline", "stroke": "consistent soft deep-navy outline", "color": {"ink": "#062446", "paper": "#F8F6F1", "mustard": "#FBBC0E", "rust": "#D54902", "maximumChromaticBlocks": 3}, "texture": "flat opaque colour cells may use restrained local tonal modelling of approximately ten percent; tonal change must remain inside each cell and must not imply volume or material", "composition": "one centred metaphor with no recurring character", "depth": "flat", "detailBudget": "one primary metaphor and up to three meaningful parts", "avoid": ["childish doodling", "fixed mascot", "character likeness", "strong or form-defining gradient", "cast shadow", "material texture", "3D extrusion", "text", "logos", "third-party motifs"]},
+  "goldens": {"status": "APPROVED_FOR_SKILL_OPERATION", "reviewManifestSha256": "081ab42cc42ed782f61c3637a19155ef777c1e204d596548f408c0fecea2fcc3", "contactSheet": "assets/goldens/mz-cartoon-v1/contact-sheet.png", "reason": "Version 1.1.0 nine-concept transparent Cartoon benchmark approved by hash-bound user review."}
+}

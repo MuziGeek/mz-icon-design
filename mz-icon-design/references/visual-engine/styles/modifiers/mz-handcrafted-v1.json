@@ -1,0 +1,9 @@
+{
+  "format": "mz.style-modifier/1",
+  "id": "mz-handcrafted-v1",
+  "axis": "mark",
+  "version": "1.0.0",
+  "allowedPresets": ["mz-line-v1", "mz-block-v1"],
+  "allowedProfiles": ["icon-ui", "icon-spot"],
+  "patch": {"stroke": "add subtle, controlled line variation while preserving profile legibility", "texture": "do not add raster grain below the profile's readable size"}
+}

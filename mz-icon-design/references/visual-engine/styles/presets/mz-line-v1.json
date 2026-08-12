@@ -1,0 +1,36 @@
+{
+  "format": "mz.style-preset/1",
+  "id": "mz-line-v1",
+  "label": "MZ Minimal Line V1",
+  "family": "minimal",
+  "version": "1.0.0",
+  "status": "APPROVED_FOR_SKILL_OPERATION",
+  "profiles": ["icon-ui"],
+  "allowedModifiers": ["mz-quiet-v1", "mz-handcrafted-v1"],
+  "rules": {
+    "identity": ["quiet", "human", "digital", "crafted"],
+    "geometry": "original low-complexity 24-unit geometry with generous clear space",
+    "stroke": "round cap and join; clean vector construction; no raster grain",
+    "color": "monochrome currentColor for functional UI use",
+    "texture": "none at 16-32px",
+    "composition": "one recognisable symbol with no detached decoration",
+    "depth": "flat",
+    "detailBudget": "one primary metaphor and up to three meaningful parts",
+    "avoid": ["gradients", "text", "filters", "third-party marks", "unreadable texture"]
+  },
+  "goldens": {
+    "status": "APPROVED_FOR_SKILL_OPERATION",
+    "manifest": "assets/goldens/manifest.json",
+    "keys": [
+      "minimal-line-home",
+      "minimal-line-works",
+      "minimal-line-notes",
+      "minimal-line-about",
+      "minimal-line-code",
+      "minimal-line-ideas",
+      "minimal-line-experiments",
+      "minimal-line-archive",
+      "minimal-line-contact"
+    ]
+  }
+}

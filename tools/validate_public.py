@@ -6,6 +6,7 @@ from __future__ import annotations
 import hashlib
 import json
 import re
+import subprocess
 import sys
 from pathlib import Path
 
@@ -106,7 +107,8 @@ def main() -> int:
             continue
         text = path.read_text(encoding="utf-8", errors="replace")
         for pattern, label in FORBIDDEN_TEXT:
-            if pattern.search(text):
+            scan_text = re.sub(r"(?i)\b[0-9a-f]{64}\b", "<sha256>", text) if label == "Chinese mobile number" else text
+            if pattern.search(scan_text):
                 errors.append(f"{relative.as_posix()}: {label}")
         if suffix == ".md":
             validate_markdown_links(path, errors)
@@ -132,6 +134,15 @@ def main() -> int:
     if not (PAYLOAD / "LICENSE").is_file():
         errors.append("Payload lacks bundled LICENSE")
 
+    snapshot = PAYLOAD / "references" / "visual-engine"
+    verifier = snapshot / "scripts" / "verify_snapshot.py"
+    if not verifier.is_file():
+        errors.append("MZ Visual Engine snapshot is missing")
+    else:
+        result = subprocess.run([sys.executable, str(verifier), str(snapshot)], text=True, capture_output=True)
+        if result.returncode:
+            errors.append(f"MZ Visual Engine snapshot is invalid: {result.stdout}{result.stderr}".strip())
+
     for asset_manifest in PAYLOAD.rglob("*.json"):
         try:
             payload = json.loads(asset_manifest.read_text(encoding="utf-8"))
@@ -146,7 +157,7 @@ def main() -> int:
                 errors.append(f"{asset_manifest.relative_to(ROOT)}: invalid asset license")
 
     manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
-    if manifest.get("format") != "mz.public-skill/1" or manifest.get("version") != "1.0.0":
+    if manifest.get("format") != "mz.public-skill/1" or manifest.get("version") != "1.3.0":
         errors.append("PUBLIC_MANIFEST.json has an unexpected format or version")
     if manifest.get("repository") != f"MuziGeek/{SKILL_ID}":
         errors.append("PUBLIC_MANIFEST.json repository mismatch")
@@ -157,8 +168,11 @@ def main() -> int:
     if skill.get("treeHash") != actual_hash:
         errors.append(f"Skill tree hash mismatch: expected {actual_hash}")
     release = manifest.get("release", {})
-    if release.get("tag") != "v1.0.0" or release.get("artifactChecksumAlgorithm") != "sha256":
+    if release.get("tag") != "v1.3.0" or release.get("artifactChecksumAlgorithm") != "sha256":
         errors.append("PUBLIC_MANIFEST.json release declaration mismatch")
+    engine = manifest.get("visualEngine", {})
+    if engine.get("version") != "1.2.0" or not isinstance(engine.get("snapshotHash"), str):
+        errors.append("PUBLIC_MANIFEST.json Visual Engine declaration mismatch")
 
     if errors:
         print("PUBLIC VALIDATION FAILED", file=sys.stderr)

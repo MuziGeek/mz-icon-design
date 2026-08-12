@@ -1,0 +1,14 @@
+{
+  "format": "mz.style-source/1",
+  "id": "voxel-icon",
+  "repository": "https://github.com/BIAsia/voxel-icon",
+  "commit": "8bed7e811981f548f089f2caace819b2560c984e",
+  "license": "MIT",
+  "auditedFiles": [
+    {"path": "LICENSE.md", "sha256": "edb4243250a39d7397d5951b6e4eb9bb5cf928507062f17a5481962660628ae8"},
+    {"path": "skill/voxel-icon/SKILL.md", "sha256": "fff4c9617c8f2868b708dadea4b687b5e8a39ba3b6c566af4925fcd06cfc9b53"}
+  ],
+  "allowed": ["method analysis", "rule-derived original implementations", "attribution"],
+  "prohibited": ["icons directory", "reference sheets", "paid assets", "Oreo-derived palettes", "animation source"],
+  "notice": "BIAsia/voxel-icon, Copyright (c) 2026 Mona Biasia (BIAsia), MIT for skill and documentation; icons are not redistributed."
+}

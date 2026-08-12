@@ -1,0 +1,9 @@
+{
+  "format": "mz.style-modifier/1",
+  "id": "mz-warm-v1",
+  "axis": "mood",
+  "version": "1.0.0",
+  "allowedPresets": ["mz-crayon-v2", "mz-block-v1", "mz-filled-v1", "mz-colorblock-v1", "mz-isometric-v1", "mz-cartoon-v1", "mz-soft-3d-v1", "mz-sticker-v1", "mz-animal-badge-v1"],
+  "allowedProfiles": ["icon-spot", "knowledge-illustration"],
+  "patch": {"color": "prioritise warm-white and mustard; limit cold accents", "emotion": "calm, approachable warmth without childlike exaggeration"}
+}

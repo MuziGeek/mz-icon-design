@@ -1,0 +1,7 @@
+{
+  "format": "mz.asset-profile/1",
+  "id": "icon-ui",
+  "target": {"skill": "mz-icon-design", "mode": "svg"},
+  "supportedPresets": ["mz-line-v1", "mz-filled-v1"],
+  "hardConstraints": {"format": "SVG", "size": {"minimum": 16, "maximum": 32}, "viewBox": "0 0 24 24", "prohibited": ["raster grain", "gradient", "text", "filter"]}
+}

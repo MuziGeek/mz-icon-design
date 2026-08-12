@@ -1,0 +1,29 @@
+{
+  "format": "mz.golden-asset-set/1",
+  "style": "mz-realistic-v1",
+  "status": "APPROVED_FOR_SKILL_OPERATION",
+  "distribution": {
+    "status": "APPROVED_FOR_SKILL_OPERATION",
+    "license": "MZ Reference Asset License 1.0"
+  },
+  "approval": {
+    "engineVersion": "1.2.0",
+    "presetVersion": "1.0.0",
+    "reviewManifestSha256": "0ccb8e7730d754013db7dcea8a4932ed985068723124344b32e5bd536fdab5ac"
+  },
+  "source": "Original MZ Realistic calibration: nine original transparent 512px generic object icons with restrained matte materials and icon-scale detail; no upstream asset, product design, palette, photograph, prompt, person, logo, text, path, or motif is distributed.",
+  "concepts": ["home", "works", "notes", "about", "code", "ideas", "experiments", "archive", "contact"],
+  "files": {
+    "icons/icon-01.png": "09319EECB1B9C1D4CBC8604C7CDF81F923958B97FE095F44FEA900AB9E7CEA98",
+    "icons/icon-02.png": "52D62F81D572541D2F17DF6E825976CEB6FCAD52FED30E8F2D26C6E7242DB673",
+    "icons/icon-03.png": "3E58D00BEFF2B2F66802C4126F49F411BEC9B1339B29A3E16F50EA0482BD2F09",
+    "icons/icon-04.png": "6378314CF69517311A9525C1BC81BC72A915973562A21B25CF6BE76988382878",
+    "icons/icon-05.png": "897B1BAD59AE556F88A284FD8A00CF8D3B032BEF11F0047FCD695762028E9871",
+    "icons/icon-06.png": "301DB2427E73E1B288C5F11824C7CF08A25052B9000B9C9882B62E1B7D269AAF",
+    "icons/icon-07.png": "DA7DFCEA2EEDADAA288AF9ED68F07BDBB34B5FF8BCF5EA0116530C0C3CEF585E",
+    "icons/icon-08.png": "12E5916E9DF37737190641A03BEA14995E22A8A14539D1CDDF86D6E6B0C40359",
+    "icons/icon-09.png": "964C3CEB6B67BAB554C70B813A37D0370DA28D042923BDB7CC034339D4A3F2ED",
+    "contact-sheet.png": "A8898C8CD6E0ABED4F9B00AD4AFC5763541E3A1367E5E22721CF390750E9824D"
+  },
+  "constraints": ["one original generic object per concept", "opaque natural matte material with no cast shadow", "no person, brand, product replica, text, photograph, or third-party industrial design"]
+}

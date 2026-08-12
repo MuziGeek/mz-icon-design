@@ -1,0 +1,13 @@
+{
+  "format": "mz.style-preset/1",
+  "id": "mz-animal-badge-v1",
+  "label": "MZ Animal Badge V1",
+  "family": "animal-badge",
+  "version": "1.1.0",
+  "status": "APPROVED_FOR_SKILL_OPERATION",
+  "profiles": ["icon-spot"],
+  "allowedModifiers": ["mz-quiet-v1", "mz-warm-v1"],
+  "lineage": {"method": "method-derived-original-rules", "sources": ["oil-icon"], "excluded": ["upstream assets", "characters", "palettes", "paths", "prompts", "motifs", "Muzi identity", "existing cat identity"]},
+  "rules": {"identity": ["intelligent", "approachable", "symbolic"], "geometry": "one original generic animal metaphor inside a simple circular badge silhouette; each concept uses a different animal", "stroke": "controlled deep-navy badge boundary and interior line", "color": {"ink": "#062446", "paper": "#F8F6F1", "mustard": "#FBBC0E", "rust": "#D54902", "maximumChromaticBlocks": 3}, "texture": "flat opaque colour cells may use restrained local tonal modelling of approximately ten percent; tonal change must remain inside each cell and must not imply volume or material", "composition": "one compact circular badge with fully transparent exterior", "depth": "flat", "detailBudget": "one animal and one semantic prop at most", "avoid": ["fixed mascot", "Muzi", "existing cat identity", "character series", "game achievement styling", "strong or form-defining gradient", "cast shadow", "material texture", "3D extrusion", "text", "logos", "third-party motifs", "crowded scenes"]},
+  "goldens": {"status": "APPROVED_FOR_SKILL_OPERATION", "reviewManifestSha256": "5307002ddb06bf2314f1816dc132c8f3f854e7d472a175376978e2945c600d12", "contactSheet": "assets/goldens/mz-animal-badge-v1/contact-sheet.png", "reason": "Version 1.1.0 nine-concept transparent Animal Badge benchmark approved by hash-bound user review."}
+}

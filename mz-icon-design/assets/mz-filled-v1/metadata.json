@@ -1,0 +1,21 @@
+{
+  "style": "mz-filled-v1",
+  "status": "READY_FOR_REVIEW",
+  "distribution": {"status": "APPROVED_FOR_SKILL_OPERATION", "license": "MZ Reference Asset License 1.0"},
+  "approval": {"reviewManifestSha256": "0879e0ff4307817deac049bbc3311fd83b46bc6899075d74452d7330f19f50d2", "engineVersion": "1.2.0"},
+  "source": "Original MZ Filled calibration: nine original currentColor SVG glyphs with 16/24/32px light-and-dark previews; no third-party asset, palette, path, prompt, or visual signature is distributed.",
+  "concepts": ["home", "works", "notes", "about", "code", "ideas", "experiments", "archive", "contact"],
+  "files": {
+    "about.svg": "F76F30157BC22A37CBD6C8D8F58DFFD6FEA95153F1829FCAC440179E62BF135E",
+    "archive.svg": "7EF661092FD67292E0AACE3A7426CD522F888DBF3CA3C5FFBB20BA7C58F8D837",
+    "code.svg": "3A999B14EA9A6F10AF7788D134D08BDD83A10E438C4CAECCAF0853134F5B5046",
+    "contact.svg": "D47932C5292883052A466AC18E44E4C276D3EDFA3A12C75CF8941853750129C2",
+    "experiments.svg": "39F1B6FCDB29622569BFF5E0846C1114095F05F23C4248DFACFFCBD659E0A759",
+    "home.svg": "9B50D2C1102E8B4551D58183EC2666F382FAE46E31FDC1C34A9BB5B22511A1A9",
+    "ideas.svg": "C0ADE6453749F16FB515CC0007294E657843A1DCCAF4C3DFCBBAFB5CF3978760",
+    "notes.svg": "140E39E14F62E6A40AE47C176C4C1EFC0F1A518564922021814E9E19B456FC49",
+    "works.svg": "DA0DAE62020D3745340BCB9CAF2B48B62D7AF306237EF7F550FF745E81D7E641",
+    "preview.html": "430765EAC3948F46163633D2C62A36AFC6AC33364EAF98B09FCC0A66BDF5D6C3"
+  },
+  "constraints": ["one original currentColor filled symbol", "open negative space", "no stroke, gradient, filter, text, third-party path, or visual signature"]
+}

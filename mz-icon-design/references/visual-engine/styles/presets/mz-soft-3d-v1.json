@@ -1,0 +1,13 @@
+{
+  "format": "mz.style-preset/1",
+  "id": "mz-soft-3d-v1",
+  "label": "MZ Soft 3D V1",
+  "family": "soft-3d",
+  "version": "1.0.0",
+  "status": "APPROVED_FOR_SKILL_OPERATION",
+  "profiles": ["icon-spot"],
+  "allowedModifiers": ["mz-quiet-v1", "mz-warm-v1"],
+  "lineage": {"method": "method-derived-original-rules", "sources": ["oil-icon"], "excluded": ["upstream assets", "materials", "palettes", "paths", "prompts", "motifs"]},
+  "rules": {"identity": ["calm", "tactile", "technical"], "geometry": "one original compact softly bevelled object on a shared orthographic three-quarter camera", "stroke": "none", "color": {"ink": "#062446", "paper": "#F8F6F1", "mustard": "#FBBC0E", "rust": "#D54902"}, "texture": "matte clay-like opaque surfaces with one broad soft key light", "composition": "one floating object with generous empty space", "depth": "orthographic three-quarter", "detailBudget": "one object and up to four meaningful construction planes", "avoid": ["glass", "chrome", "metal glare", "strong reflection", "ground shadow", "text", "logos", "third-party material signatures"]},
+  "goldens": {"status": "APPROVED_FOR_SKILL_OPERATION", "reviewManifestSha256": "bbc68b543bbb2b06a106b3142b6bccdbfb6b2a8f127bd316ced8aa5edc9f9088", "contactSheet": "assets/goldens/mz-soft-3d-v1-contact-sheet.png", "reason": "Nine-concept transparent spot benchmark approved by hash-bound user review."}
+}

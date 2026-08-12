@@ -1,0 +1,29 @@
+{
+  "format": "mz.golden-asset-set/1",
+  "style": "mz-animal-badge-v1",
+  "status": "APPROVED_FOR_SKILL_OPERATION",
+  "distribution": {
+    "status": "APPROVED_FOR_SKILL_OPERATION",
+    "license": "MZ Reference Asset License 1.0"
+  },
+  "approval": {
+    "engineVersion": "1.2.0",
+    "presetVersion": "1.1.0",
+    "reviewManifestSha256": "5307002ddb06bf2314f1816dc132c8f3f854e7d472a175376978e2945c600d12"
+  },
+  "source": "Original MZ Animal Badge calibration: nine original transparent 512px icons with different generic one-off animal metaphors, circular badge boundaries, and restrained local tonal modelling; no third-party asset, character, palette, path, prompt, motif, Muzi identity, or existing cat identity is distributed.",
+  "concepts": ["home", "works", "notes", "about", "code", "ideas", "experiments", "archive", "contact"],
+  "files": {
+    "icons/icon-01.png": "ECEBFFB3BF2166AB57FFF7DE8A64BC63496B01BA4A2C7C2911088C49CA3A55AE",
+    "icons/icon-02.png": "2E3014C7BF6149FF3500AD29ED0B28656A6D146C612D3073C0B58A061FE8DAEC",
+    "icons/icon-03.png": "05388BE577335508E432403D3CA333C8DCB44417E6ECFF06E68CF737E3465F4C",
+    "icons/icon-04.png": "C6C5DE745BDC7DBA9124ACEF8F3F8110A44945402688CFFDC85CE8AC4A48135E",
+    "icons/icon-05.png": "F974DF10B523818D0E4BD2036D46D73568306D9687942655E39DF1C843C3E352",
+    "icons/icon-06.png": "9C7E442065DD588EBDDB2ABF131478BAF37A7D600FCD1A5EAAAA1C1FE89C5906",
+    "icons/icon-07.png": "9B29047611AE8DB3EC4878142DDEFF912B5D561A66EF13401A23133111594D2F",
+    "icons/icon-08.png": "70E061616B76E38D9E229C08538ED6A87096A5DE3775A1C306290BC5CF1DCBF1",
+    "icons/icon-09.png": "FAA913EECBEE125068028325F1DFEA65AEBEBAB9D26CC57C91CFBDF6F391AD68",
+    "contact-sheet.png": "9C5419E04A227E789A7BA3CCDFB0DDA320DD924994963F486185FD6B422DC846"
+  },
+  "constraints": ["nine different generic one-off animal metaphors", "simple circular badge with restrained local tonal modelling", "no recurring mascot, Muzi, existing cat identity, game-achievement styling, text, logo, or third-party motif"]
+}

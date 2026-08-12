@@ -1,0 +1,29 @@
+{
+  "format": "mz.golden-asset-set/1",
+  "style": "mz-voxel-macro-v1",
+  "status": "APPROVED_FOR_SKILL_OPERATION",
+  "distribution": {
+    "status": "APPROVED_FOR_SKILL_OPERATION",
+    "license": "MZ Reference Asset License 1.0"
+  },
+  "approval": {
+    "engineVersion": "1.2.0",
+    "presetVersion": "1.1.0",
+    "reviewManifestSha256": "bdc6a9658e2e47db5171230d9a7c57b278aabe7299642da4d9e7e749be10e425"
+  },
+  "source": "Original MZ Macro Voxel calibration: nine original transparent 512px MZ icons with a coarse shared-grid silhouette, orthographic three-quarter camera, opaque planar faces, and semantic MZ colours; no upstream asset, palette, prompt, loop logic, or visual signature is distributed.",
+  "concepts": ["home", "works", "notes", "about", "code", "ideas", "experiments", "archive", "contact"],
+  "files": {
+    "icons/about.png": "AA968A383B237F5CBA0151C46A3452217B5B3D89FCEB9EE76E90E8FDFD6F5E99",
+    "icons/archive.png": "31DBD7A29C1862589DB630398CDF2845BA542FE985387139C31C0B5E48A9C340",
+    "icons/code.png": "B60475916E59818096559A09039DF4A34BD046662E9051DDFD58E76672A7F3EE",
+    "icons/contact.png": "219CDC7C468A690D2803C86B6E9A05C422F4DABF35DC4317AE25212C6D190886",
+    "icons/experiments.png": "45E8BAE0E7511FB7CCE0DA679F4102C933FB1215B4B4B61286C82866276B833B",
+    "icons/home.png": "D7A3A76603A1F153F4C2E9548480D28C7F2A6EFFD04AD04A8A2C28EB28D600AA",
+    "icons/ideas.png": "9C25F95D0F5CAA5C468443594C3A70D2BF9EB4F062C6822AB62AFB3FEA4F56CB",
+    "icons/notes.png": "992F997C247BB3557306BABAA746B52CCC018F5A64DDEB5BC37944C03EDAE30E",
+    "icons/works.png": "70E58EC796F58CA325718D9E30ABB745BE94D40022D5392AEB439762DFF2354D",
+    "contact-sheet.png": "3AAF3D80A27CF5A2CFFE109DEAAF6AA463788435979CD1D954055641B48D5C57"
+  },
+  "constraints": ["coarse shared-grid silhouette", "orthographic three-quarter camera", "two or three identity cues", "opaque faces", "no internal alpha hole, detached alpha island, chroma residue, ground shadow, text, logo, Oreo-derived palette, or third-party motif"]
+}

@@ -1,0 +1,13 @@
+{
+  "format": "mz.style-preset/1",
+  "id": "mz-realistic-v1",
+  "label": "MZ Realistic V1",
+  "family": "realistic",
+  "version": "1.0.0",
+  "status": "APPROVED_FOR_SKILL_OPERATION",
+  "profiles": ["icon-spot"],
+  "allowedModifiers": ["mz-quiet-v1"],
+  "lineage": {"method": "method-derived-original-rules", "sources": ["oil-icon"], "excluded": ["upstream assets", "product designs", "palettes", "photographs", "prompts", "motifs"]},
+  "rules": {"identity": ["recognisable", "calm", "material-aware"], "geometry": "one original generic object simplified for icon-scale recognition", "stroke": "none", "color": "use restrained semantic object colours without brand colour systems", "texture": "opaque natural matte material with soft studio lighting", "composition": "one isolated object and no environment", "depth": "subtle three-quarter product view", "detailBudget": "one object and up to three material cues", "avoid": ["brands", "logos", "product replicas", "photographic scenery", "people", "text", "watermark", "cast shadow", "third-party industrial design"]},
+  "goldens": {"status": "APPROVED_FOR_SKILL_OPERATION", "manifest": "assets/goldens/manifest.json", "approvalManifestSha256": "0ccb8e7730d754013db7dcea8a4932ed985068723124344b32e5bd536fdab5ac"}
+}

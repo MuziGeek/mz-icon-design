@@ -1,0 +1,13 @@
+{
+  "format": "mz.style-preset/1",
+  "id": "mz-sticker-v1",
+  "label": "MZ Sticker V1",
+  "family": "sticker",
+  "version": "1.1.0",
+  "status": "APPROVED_FOR_SKILL_OPERATION",
+  "profiles": ["icon-spot"],
+  "allowedModifiers": ["mz-quiet-v1", "mz-warm-v1"],
+  "lineage": {"method": "method-derived-original-rules", "sources": ["oil-icon"], "excluded": ["upstream assets", "palettes", "paths", "prompts", "motifs"]},
+  "rules": {"identity": ["crisp", "playful", "restrained"], "geometry": "one original flat symbol surrounded by a continuous warm-white die-cut border at approximately eight to twelve percent of subject scale", "stroke": "die-cut border only; no outline system", "color": {"ink": "#062446", "paper": "#F8F6F1", "mustard": "#FBBC0E", "rust": "#D54902"}, "texture": "flat opaque base colour with shallow local tonal modelling of approximately ten percent; tonal change must not imply volume or material", "composition": "one centred isolated symbol with transparent exterior", "depth": "flat", "detailBudget": "one metaphor and no detached decoration", "avoid": ["character face", "strong or form-defining gradient", "cast shadow", "paper shadow", "material texture", "3D extrusion", "card", "tile", "text", "logos", "third-party motifs"]},
+  "goldens": {"status": "APPROVED_FOR_SKILL_OPERATION", "reviewManifestSha256": "7aecaa50e9d134d93cd9f32b572b916f7126a457b2895942e292fc18b47d4e9f", "contactSheet": "assets/goldens/mz-sticker-v1/contact-sheet.png", "reason": "Version 1.1.0 nine-concept transparent Sticker benchmark approved by hash-bound user review."}
+}

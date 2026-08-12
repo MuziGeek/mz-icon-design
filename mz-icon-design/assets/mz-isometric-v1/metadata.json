@@ -1,0 +1,28 @@
+{
+  "format": "mz.golden-asset-set/1",
+  "style": "mz-isometric-v1",
+  "status": "APPROVED_FOR_SKILL_OPERATION",
+  "distribution": {
+    "status": "APPROVED_FOR_SKILL_OPERATION",
+    "license": "MZ Reference Asset License 1.0"
+  },
+  "approval": {
+    "engineVersion": "1.2.0",
+    "reviewManifestSha256": "2cbadd5e630b124e3309437ab2628d0807efcf811a1ea0b494d0d2d48bda5272"
+  },
+  "source": "Original MZ Isometric calibration: nine original transparent 512px isometric icons with a shared three-quarter camera, clean flat facet shading, and deterministic exterior-grey-fringe cleanup; no third-party asset, palette, path, prompt, or visual signature is distributed.",
+  "concepts": ["home", "works", "notes", "about", "code", "ideas", "experiments", "archive", "contact"],
+  "files": {
+    "icons/icon-01.png": "192BD0594DC32F2C24220B0DAA26CF7EF7B5EB658059585B449462F2A1AA34F2",
+    "icons/icon-02.png": "A61AEED36917A099D12C52914E5BA2A4A5F847E4C725EF3983F493D1A8FB2712",
+    "icons/icon-03.png": "742525CF6459C5F93102B3670F6DB2100EBC2693A599C9356D65142D0E246B38",
+    "icons/icon-04.png": "92EBAA81DBE82EF26B64860AED024D7C337AA8C910BAEAD23F2D6EDC929A51FC",
+    "icons/icon-05.png": "5AD8D9BDA68BFD5219568AC5502FB970BDADC48620684215A16B72C264E0EF05",
+    "icons/icon-06.png": "2CFA4F7F1AE321F7AC008E766C8BE3CF6673B51584A376F7EC2E57388684E004",
+    "icons/icon-07.png": "52186E579FA9546245F4389EFE8A6ADB034C6837DE9B5CCEB6D0B47169F05F74",
+    "icons/icon-08.png": "7C4F853912D69B3FFED9D56572C369B72DBDB30B2C6195B3459D8623073F52E3",
+    "icons/icon-09.png": "D84A0688C405579CA9B7A10CF846691FFBC555785C63BAAC277F3C91BADE5707",
+    "contact-sheet.png": "DB8DDE09CA8CB798A0A95837E943554792F005D98533F139C407E0AE673F4640"
+  },
+  "constraints": ["shared isometric three-quarter camera", "clean flat facet shading", "no ground shadow, grey fringe, crayon outline, text, logo, or third-party motif"]
+}
