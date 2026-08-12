@@ -1,28 +1,100 @@
+<p align="right"><a href="README.md">English</a></p>
+
+<p align="center">
+  <img src="docs/readme/hero.svg" width="100%" alt="MZ Icon Design 把 16–32 px 界面图标路由到 SVG，把 48–256 px Spot 图标路由到受评审的 PNG 工作流">
+</p>
+
 # MZ Icon Design
 
-一个独立、评审优先的 Agent Skill，用于创建统一的 MZ 界面图标与具有表现力的 Spot 图标系统。
+一个请求，进入正确的生产路线，交付可评审的图标。
 
-![MZ 蜡笔图标系统](mz-icon-design/assets/mz-crayon-v2/contact-sheet.png)
+MZ Icon Design 是一个独立、评审优先的 Agent Skill，用于创建统一的界面图标与具有表现力的 Spot 图标系统。它会根据用途和显示尺寸自动路由，验证每个输出，并停在 `READY_FOR_REVIEW`。
 
-## 三条生产路线
+## 先看真实成果
+
+![九个 MZ 蜡笔 Spot 图标的大尺寸与紧凑尺寸对照](mz-icon-design/assets/mz-crayon-v2/contact-sheet.png)
+
+<details>
+<summary><strong>浏览另外九种已批准 Spot 风格</strong></summary>
+
+### MZ Block
+
+![九个 MZ 积木风图标](mz-icon-design/assets/mz-block-v1/contact-sheet.png)
+
+### MZ Soft 3D
+
+![九个 MZ 哑光柔和 3D 图标](mz-icon-design/assets/mz-soft-3d-v1/contact-sheet.png)
+
+### MZ Colorblock
+
+![九个 MZ Colorblock 图标](mz-icon-design/assets/mz-colorblock-v1/contact-sheet.png)
+
+### MZ Isometric
+
+![九个 MZ 柔和等距图标](mz-icon-design/assets/mz-isometric-v1/contact-sheet.png)
+
+### MZ Macro Voxel
+
+![九个 MZ 抛光 Macro Voxel 图标](mz-icon-design/assets/mz-voxel-macro-v1/contact-sheet.png)
+
+### MZ Sticker
+
+![九个 MZ 模切贴纸图标](mz-icon-design/assets/mz-sticker-v1/contact-sheet.png)
+
+### MZ Cartoon
+
+![九个友好的 MZ Cartoon 图标](mz-icon-design/assets/mz-cartoon-v1/contact-sheet.png)
+
+### MZ Animal Badge
+
+![九个一次性隐喻 MZ 动物徽章图标](mz-icon-design/assets/mz-animal-badge-v1/contact-sheet.png)
+
+### MZ Realistic
+
+![九个简化写实 MZ 物件图标](mz-icon-design/assets/mz-realistic-v1/contact-sheet.png)
+
+</details>
+
+## 根据用途和尺寸选择
 
 | 路线 | 适用场景 | 输出 |
 | --- | --- | --- |
 | `mz-line-v1` | 16–32 px 导航、按钮与紧凑 UI | 原创 SVG 与明暗预览 |
+| `mz-filled-v1` | 明确要求实心 UI 图标或实心字形的 16–32 px 场景 | 原创 `currentColor` SVG 与明暗预览 |
 | `mz-crayon-v2` | 栏目、功能、分类与空状态 | 手绘透明 PNG Spot 图标 |
 | `mz-block-v1` | 技术产品与空间概念 | 等距积木风透明 PNG 图标 |
+| `mz-soft-3d-v1` | 明确要求柔和 3D 或哑光黏土的概念 | 原创透明 PNG Spot 图标 |
+| `mz-colorblock-v1` | 明确要求 Colorblock 或撞色色块的概念 | 原创透明 PNG Spot 图标 |
+| `mz-isometric-v1` | 明确要求柔和等距微缩物的概念 | 原创透明 PNG Spot 图标 |
+| `mz-voxel-macro-v1` | 明确要求 Macro Voxel 或抛光亚克力体素的概念 | 原创透明 PNG Spot 图标 |
+| `mz-sticker-v1` | 明确要求 Sticker 或模切贴纸的概念 | 原创透明 PNG Spot 图标 |
+| `mz-cartoon-v1` | 明确要求友好 Cartoon 图标的概念 | 原创透明 PNG Spot 图标 |
+| `mz-animal-badge-v1` | 明确要求一次性动物隐喻徽章的概念 | 原创透明 PNG Spot 图标 |
+| `mz-realistic-v1` | 明确要求简化写实物件的概念 | 原创透明 PNG Spot 图标 |
 
-![MZ Block 图标系统](mz-icon-design/assets/mz-block-v1/contact-sheet.png)
+用户明确指定的 Mode 或 Style 始终优先。未指定风格的单个图标默认使用 SVG；未指定风格的一组图标默认使用 `mz-crayon-v2` Spot 路线。
 
-Skill 会根据用途与显示尺寸自动路由，验证每个输出，并停在 `READY_FOR_REVIEW`，不会自动发布或冒充用户验收。
+## 两条路线，分别执行 QA
+
+### UI SVG · 16–32 px
+
+创建原创 24×24 图标，校验几何与风格，在明暗背景中检查 16/24/32 px 显示效果，最后验证 Batch Manifest。只有静态检查不能进入 `READY_FOR_REVIEW`。
+
+### Spot PNG · 48–256 px
+
+锁定一种已批准风格，生成受控 4×4 Sheet，切分目标图标，校验透明度与裁切，再检查洋红、黑色、奶油色背景以及 48 px、96 px QA 预览。
 
 ## 安装
 
+使用 Codex 从 `main` 安装当前 v1.3.0 代码：
+
 ```text
-$skill-installer install https://github.com/MuziGeek/mz-icon-design/tree/v1.0.0/mz-icon-design
+$skill-installer install https://github.com/MuziGeek/mz-icon-design/tree/main/mz-icon-design
 ```
 
-## 示例
+当前最新已发布标签仍为 `v1.0.0`；在 v1.3.0 Release 发布前，请使用 `main` 获取上面展示的 v1.3.0 路线。
+
+## 第一次使用
 
 ```text
 Use $mz-icon-design to create a 24px search icon for navigation.
@@ -30,15 +102,17 @@ Use $mz-icon-design to create nine crayon spot icons for a personal portfolio.
 Use $mz-icon-design to audit these SVG icons against the MZ design system.
 ```
 
-## 可靠性
+## 评审边界
 
-- 在 UI SVG 与两种 Spot 风格之间进行明确路由。
-- SVG 静态检查与 16/24/32 px 视觉复核。
-- PNG 集合的透明边缘、裁切、尺寸与 QA 预览检查。
-- 区分草稿、生成受阻、验证失败与待评审状态。
+- UI SVG 接受静态校验，以及多尺寸、明暗背景视觉复核。
+- PNG 集合接受透明边缘、裁切、尺寸与 QA Sheet 检查。
+- Manifest 区分 `DRAFT`、`GENERATION_BLOCKED`、`VALIDATION_FAILED` 与 `READY_FOR_REVIEW`。
+- Skill 不会静默发布资产，也不会冒充用户验收。
+
+## MZ Visual Engine 交接
+
+Skill 可以接收可选的已校验 `mz.visual-brief/1`。成功解析的 Brief 只会选择兼容的既有路线，不能绕过本 Skill 的原创性、SVG/PNG QA、Manifest 或用户评审要求。
 
 ## 许可证
 
 代码与文档使用 MIT 许可证；MZ 参考图像使用 [MZ Reference Asset License 1.0](ASSET_LICENSE.md)。具体边界见 [NOTICE.md](NOTICE.md)。
-
-[English](README.md)
