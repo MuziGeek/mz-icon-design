@@ -1,7 +1,7 @@
 <p align="right"><a href="README.zh-CN.md">简体中文</a></p>
 
 <p align="center">
-  <img src="docs/readme/hero.svg" width="100%" alt="MZ Icon Design routes 16–32 px UI icons to SVG and 48–256 px spot icons to reviewed PNG workflows">
+  <img src="docs/readme/hero.svg" width="100%" alt="MZ Icon Design routes UI icons to SVG and spot icons to reviewed PNG tracks">
 </p>
 
 # MZ Icon Design
@@ -12,14 +12,10 @@ MZ Icon Design is an independent, review-first agent Skill for creating coherent
 
 ## Real output first
 
-![Nine MZ crayon spot icons shown at large and compact sizes](mz-icon-design/assets/mz-crayon-v2/contact-sheet.png)
+![Nine MZ block-style icons](mz-icon-design/assets/mz-block-v1/contact-sheet.png)
 
 <details>
-<summary><strong>Browse the other nine approved Spot styles</strong></summary>
-
-### MZ Block
-
-![Nine MZ block-style icons](mz-icon-design/assets/mz-block-v1/contact-sheet.png)
+<summary><strong>Browse the other approved Spot styles</strong></summary>
 
 ### MZ Soft 3D
 
@@ -61,7 +57,7 @@ MZ Icon Design is an independent, review-first agent Skill for creating coherent
 | --- | --- | --- |
 | `mz-line-v1` | Navigation, buttons, compact UI at 16–32 px | Original SVG with light/dark previews |
 | `mz-filled-v1` | Explicit filled UI icons and solid glyphs at 16–32 px | Original `currentColor` SVG with light/dark previews |
-| `mz-crayon-v2` | Sections, features, categories, empty states | Hand-drawn transparent PNG Spot icons |
+| `mz-crayon-base-v1` | Sections, features, categories, empty states | Identity-neutral hand-drawn transparent PNG Spot icons |
 | `mz-block-v1` | Technical products and spatial concepts | Isometric block-style transparent PNG icons |
 | `mz-soft-3d-v1` | Explicit soft-3D or matte-clay concepts | Original transparent PNG Spot icons |
 | `mz-colorblock-v1` | Explicit Colorblock or contrasting-colour-block concepts | Original transparent PNG Spot icons |
@@ -72,7 +68,7 @@ MZ Icon Design is an independent, review-first agent Skill for creating coherent
 | `mz-animal-badge-v1` | Explicit one-off Animal Badge concepts | Original transparent PNG Spot icons |
 | `mz-realistic-v1` | Explicit simplified Realistic object concepts | Original transparent PNG Spot icons |
 
-An explicit user mode or style always wins. A single unspecified icon defaults to SVG; an unspecified set defaults to `mz-crayon-v2` Spot icons.
+An explicit user mode or style always wins. A single unspecified icon defaults to SVG; an unspecified set defaults to `mz-crayon-base-v1` Spot icons. Character or brand identity appears only through an explicitly supplied compatible Extension.
 
 ## Two tracks, separate QA
 
@@ -86,19 +82,19 @@ Freeze one approved style, generate a controlled 4×4 sheet, slice the requested
 
 ## Install
 
-Install the current v1.3.0 code from `main` with Codex:
+Install the current v2.0.0 code from `main` with Codex:
 
 ```text
 $skill-installer install https://github.com/MuziGeek/mz-icon-design/tree/main/mz-icon-design
 ```
 
-The latest published tag is still `v1.0.0`; use `main` for the v1.3.0 routes shown above until a v1.3.0 release is published.
+The repository declares v2.0.0 for the public, Extension-aware interface.
 
 ## First use
 
 ```text
 Use $mz-icon-design to create a 24px search icon for navigation.
-Use $mz-icon-design to create nine crayon spot icons for a personal portfolio.
+Use $mz-icon-design to create nine identity-neutral crayon spot icons for a portfolio.
 Use $mz-icon-design to audit these SVG icons against the MZ design system.
 ```
 
@@ -111,7 +107,7 @@ Use $mz-icon-design to audit these SVG icons against the MZ design system.
 
 ## MZ Visual Engine handoff
 
-The Skill can accept an optional validated `mz.visual-brief/1`. A resolved brief selects a compatible existing route; it cannot bypass this Skill's originality, SVG/PNG QA, manifest, or user-review requirements.
+The Skill can accept an optional validated `mz.visual-brief/1`. A resolved public brief selects a compatible public route. A namespaced private style is accepted only when its Extension is supplied explicitly and its hash is valid; neither route can bypass originality, SVG/PNG QA, manifest, or user-review requirements.
 
 ## License
 

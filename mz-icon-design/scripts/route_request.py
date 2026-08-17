@@ -24,8 +24,9 @@ def main():
     parser.add_argument("--size", type=int, default=0)
     parser.add_argument("--concept-count", type=int, default=1)
     parser.add_argument("--mode", choices=("auto", "svg", "spot"), default="auto")
-    parser.add_argument("--style", choices=("", "mz-line-v1", "mz-filled-v1", "mz-crayon-v2", "mz-block-v1", "mz-soft-3d-v1", "mz-colorblock-v1", "mz-isometric-v1", "mz-voxel-macro-v1", "mz-sticker-v1", "mz-cartoon-v1", "mz-animal-badge-v1", "mz-realistic-v1"), default="")
+    parser.add_argument("--style", choices=("", "mz-line-v1", "mz-filled-v1", "mz-crayon-base-v1", "mz-block-v1", "mz-soft-3d-v1", "mz-colorblock-v1", "mz-isometric-v1", "mz-voxel-macro-v1", "mz-sticker-v1", "mz-cartoon-v1", "mz-animal-badge-v1", "mz-realistic-v1"), default="")
     parser.add_argument("--brief")
+    parser.add_argument("--extension")
     args = parser.parse_args()
     if args.brief:
         snapshot_scripts = Path(__file__).resolve().parents[1] / "references" / "visual-engine" / "scripts"
@@ -33,14 +34,15 @@ def main():
         from engine_lib import ContractError, load_catalog, validate_brief
         try:
             brief = json.loads(Path(args.brief).read_text(encoding="utf-8"))
-            validate_brief(brief, load_catalog(snapshot_scripts.parent))
+            catalog = load_catalog(snapshot_scripts.parent, extension_root=Path(args.extension) if args.extension else None)
+            validate_brief(brief, catalog)
         except (OSError, json.JSONDecodeError, ContractError) as exc:
             raise SystemExit(f"invalid MZ visual brief: {exc}") from exc
         if brief.get("status") != "RESOLVED" or brief["target"].get("skill") != "mz-icon-design":
             raise SystemExit("brief does not resolve to mz-icon-design")
         mode = brief["target"].get("mode")
         style = brief["style"]["preset"].get("id")
-        if mode not in ("svg", "spot") or style not in ("mz-line-v1", "mz-filled-v1", "mz-crayon-v2", "mz-block-v1", "mz-soft-3d-v1", "mz-colorblock-v1", "mz-isometric-v1", "mz-voxel-macro-v1", "mz-sticker-v1", "mz-cartoon-v1", "mz-animal-badge-v1", "mz-realistic-v1"):
+        if mode not in ("svg", "spot") or style not in catalog["presets"]:
             raise SystemExit("brief contains an unsupported Icon route")
         print(json.dumps({"mode": mode, "style": style}, ensure_ascii=False))
         return
@@ -80,9 +82,9 @@ def main():
     elif any(word in text for word in BLOCK_WORDS):
         style = "mz-block-v1"
     else:
-        style = "mz-crayon-v2"
+        style = "mz-crayon-base-v1"
     if style in ("mz-line-v1", "mz-filled-v1"): mode = "svg"
-    if style in ("mz-crayon-v2", "mz-block-v1", "mz-soft-3d-v1", "mz-colorblock-v1", "mz-isometric-v1", "mz-voxel-macro-v1", "mz-sticker-v1", "mz-cartoon-v1", "mz-animal-badge-v1", "mz-realistic-v1"): mode = "spot"
+    if style in ("mz-crayon-base-v1", "mz-block-v1", "mz-soft-3d-v1", "mz-colorblock-v1", "mz-isometric-v1", "mz-voxel-macro-v1", "mz-sticker-v1", "mz-cartoon-v1", "mz-animal-badge-v1", "mz-realistic-v1"): mode = "spot"
     print(json.dumps({"mode": mode, "style": style}, ensure_ascii=False))
 
 if __name__ == "__main__": main()

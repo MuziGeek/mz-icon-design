@@ -1,0 +1,8 @@
+{
+  "name": "mz-crayon-base-v1",
+  "label": "MZ Neutral Crayon Base V1",
+  "preamble": "Object-led neutral dry-crayon spot icons with charcoal handmade outlines, restrained earth and cool semantic accents, simple original geometry, generous clear space, and no recurring mascot or bundled private identity.",
+  "paletteRoles": ["neutral canvas", "charcoal ink", "earth primary", "cool secondary", "restrained accent"],
+  "sheet": {"size": 1254, "grid": 4, "background": "#808080", "defaultCount": 9},
+  "construction": {"grid": "24-unit keyline; live area about 72%; generous equal padding", "stroke": "controlled uneven dry-media outline", "angles": "flat front-facing geometry with mild organic variation", "detailBudget": "one metaphor and no more than four meaningful parts", "fill": "limited flat fills with restrained grain", "perspective": "flat front-facing", "motif": "no detached decoration or fixed character"}
+}

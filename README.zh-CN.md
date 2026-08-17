@@ -1,7 +1,7 @@
 <p align="right"><a href="README.md">English</a></p>
 
 <p align="center">
-  <img src="docs/readme/hero.svg" width="100%" alt="MZ Icon Design 把 16–32 px 界面图标路由到 SVG，把 48–256 px Spot 图标路由到受评审的 PNG 工作流">
+  <img src="docs/readme/hero.svg" width="100%" alt="MZ Icon Design 将 UI 图标路由到 SVG，将 Spot 图标路由到经过评审的 PNG 轨道">
 </p>
 
 # MZ Icon Design
@@ -12,14 +12,10 @@ MZ Icon Design 是一个独立、评审优先的 Agent Skill，用于创建统�
 
 ## 先看真实成果
 
-![九个 MZ 蜡笔 Spot 图标的大尺寸与紧凑尺寸对照](mz-icon-design/assets/mz-crayon-v2/contact-sheet.png)
+![九个 MZ 积木风图标](mz-icon-design/assets/mz-block-v1/contact-sheet.png)
 
 <details>
-<summary><strong>浏览另外九种已批准 Spot 风格</strong></summary>
-
-### MZ Block
-
-![九个 MZ 积木风图标](mz-icon-design/assets/mz-block-v1/contact-sheet.png)
+<summary><strong>浏览其他已批准 Spot 风格</strong></summary>
 
 ### MZ Soft 3D
 
@@ -61,7 +57,7 @@ MZ Icon Design 是一个独立、评审优先的 Agent Skill，用于创建统�
 | --- | --- | --- |
 | `mz-line-v1` | 16–32 px 导航、按钮与紧凑 UI | 原创 SVG 与明暗预览 |
 | `mz-filled-v1` | 明确要求实心 UI 图标或实心字形的 16–32 px 场景 | 原创 `currentColor` SVG 与明暗预览 |
-| `mz-crayon-v2` | 栏目、功能、分类与空状态 | 手绘透明 PNG Spot 图标 |
+| `mz-crayon-base-v1` | 栏目、功能、分类与空状态 | 身份中立的手绘透明 PNG Spot 图标 |
 | `mz-block-v1` | 技术产品与空间概念 | 等距积木风透明 PNG 图标 |
 | `mz-soft-3d-v1` | 明确要求柔和 3D 或哑光黏土的概念 | 原创透明 PNG Spot 图标 |
 | `mz-colorblock-v1` | 明确要求 Colorblock 或撞色色块的概念 | 原创透明 PNG Spot 图标 |
@@ -72,7 +68,7 @@ MZ Icon Design 是一个独立、评审优先的 Agent Skill，用于创建统�
 | `mz-animal-badge-v1` | 明确要求一次性动物隐喻徽章的概念 | 原创透明 PNG Spot 图标 |
 | `mz-realistic-v1` | 明确要求简化写实物件的概念 | 原创透明 PNG Spot 图标 |
 
-用户明确指定的 Mode 或 Style 始终优先。未指定风格的单个图标默认使用 SVG；未指定风格的一组图标默认使用 `mz-crayon-v2` Spot 路线。
+用户明确指定的 Mode 或 Style 始终优先。未指定风格的单个图标默认使用 SVG；未指定风格的一组图标默认使用 `mz-crayon-base-v1` Spot 路线。人物或品牌身份只能通过显式提供且兼容的 Extension 生效。
 
 ## 两条路线，分别执行 QA
 
@@ -86,19 +82,19 @@ MZ Icon Design 是一个独立、评审优先的 Agent Skill，用于创建统�
 
 ## 安装
 
-使用 Codex 从 `main` 安装当前 v1.3.0 代码：
+使用 Codex 从 `main` 安装当前 v2.0.0 代码：
 
 ```text
 $skill-installer install https://github.com/MuziGeek/mz-icon-design/tree/main/mz-icon-design
 ```
 
-当前最新已发布标签仍为 `v1.0.0`；在 v1.3.0 Release 发布前，请使用 `main` 获取上面展示的 v1.3.0 路线。
+仓库当前声明 v2.0.0 的公共 Extension 接口。
 
 ## 第一次使用
 
 ```text
 Use $mz-icon-design to create a 24px search icon for navigation.
-Use $mz-icon-design to create nine crayon spot icons for a personal portfolio.
+Use $mz-icon-design to create nine identity-neutral crayon spot icons for a portfolio.
 Use $mz-icon-design to audit these SVG icons against the MZ design system.
 ```
 
@@ -111,7 +107,7 @@ Use $mz-icon-design to audit these SVG icons against the MZ design system.
 
 ## MZ Visual Engine 交接
 
-Skill 可以接收可选的已校验 `mz.visual-brief/1`。成功解析的 Brief 只会选择兼容的既有路线，不能绕过本 Skill 的原创性、SVG/PNG QA、Manifest 或用户评审要求。
+Skill 可以接收可选的已校验 `mz.visual-brief/1`。公共 Brief 选择公共路线；私有命名空间风格只有在显式提供 Extension 且哈希有效时才能生效。任何路线都不能绕过原创性、SVG/PNG QA、Manifest 或用户评审要求。
 
 ## 许可证
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Deterministic contracts for MZ Visual Engine v1."""
+"""Deterministic contracts for MZ Visual Engine v2."""
 
 from __future__ import annotations
 
@@ -12,7 +12,7 @@ from typing import Any
 
 
 PACKAGE_ROOT = Path(__file__).resolve().parents[1]
-ENGINE_VERSION = "1.2.0"
+ENGINE_VERSION = "2.0.0"
 VALID_BRIEF_STATUSES = {
     "RESOLVED",
     "STYLE_CONFLICT",
@@ -84,24 +84,131 @@ def _load_optional_directory(path: Path) -> dict[str, dict[str, Any]]:
     return _load_directory(path) if path.is_dir() else {}
 
 
-def load_catalog(root: Path = PACKAGE_ROOT) -> dict[str, Any]:
+def load_catalog(root: Path = PACKAGE_ROOT, extension_root: Path | None = None) -> dict[str, Any]:
     catalog = {
         "root": root,
+        "snapshot": read_json(root / "engine-snapshot.json") if (root / "engine-snapshot.json").is_file() else None,
         "schema": read_json(root / "schemas" / "mz-contracts-v1.json"),
+        "tokens": _load_optional_directory(root / "tokens"),
+        "characters": _load_optional_directory(root / "characters"),
         "presets": _load_directory(root / "styles" / "presets"),
         "sources": _load_optional_directory(root / "sources"),
         "adapters": _load_optional_directory(root / "styles" / "adapters"),
         "modifiers": _load_directory(root / "styles" / "modifiers"),
         "profiles": _load_directory(root / "profiles"),
+        "extension": None,
     }
     validate_catalog(catalog)
+    if extension_root is not None:
+        apply_extension(catalog, Path(extension_root).resolve())
     return catalog
+
+
+def _validate_extension_files(root: Path, manifest: dict[str, Any]) -> None:
+    files = manifest.get("files")
+    if not isinstance(files, list) or not files:
+        raise ContractError("extension files must be a non-empty list")
+    seen: set[str] = set()
+    for item in files:
+        if not isinstance(item, dict) or set(item) != {"path", "sha256"}:
+            raise ContractError("extension file entries require path and sha256")
+        relative = item.get("path")
+        expected = item.get("sha256")
+        if not isinstance(relative, str) or not relative or relative in seen or not re.fullmatch(r"[0-9a-f]{64}", str(expected)):
+            raise ContractError("invalid extension file entry")
+        seen.add(relative)
+        file = (root / relative).resolve()
+        if root not in file.parents or not file.is_file():
+            raise ContractError(f"extension file is missing or escapes root: {relative}")
+        if digest(file) != expected:
+            raise ContractError(f"extension file hash mismatch: {relative}")
+    actual = {
+        file.relative_to(root).as_posix()
+        for file in root.rglob("*")
+        if file.is_file() and file != root / "extension.json" and "__pycache__" not in file.parts
+    }
+    if seen != actual:
+        missing = sorted(actual - seen)
+        extra = sorted(seen - actual)
+        raise ContractError(f"extension file inventory mismatch: missing={missing}, extra={extra}")
+
+
+def apply_extension(catalog: dict[str, Any], root: Path) -> None:
+    manifest_file = root / "extension.json"
+    manifest = read_json(manifest_file)
+    required = catalog["schema"]["contracts"]["mz.visual-extension/1"]["required"]
+    if manifest.get("format") != "mz.visual-extension/1" or any(key not in manifest for key in required):
+        raise ContractError("invalid mz.visual-extension/1 manifest")
+    namespace = manifest.get("namespace")
+    extension_id = manifest.get("id")
+    version = manifest.get("version")
+    if not isinstance(extension_id, str) or not extension_id or not isinstance(version, str) or not re.fullmatch(r"\d+\.\d+\.\d+", version):
+        raise ContractError("extension id and semantic version are required")
+    if not isinstance(namespace, str) or not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", namespace):
+        raise ContractError("extension namespace must be lowercase hyphen-case")
+    _validate_extension_files(root, manifest)
+    extension_tokens = _load_optional_directory(root / "tokens")
+    extension_characters = _load_optional_directory(root / "characters")
+    extension_presets = _load_optional_directory(root / "presets")
+    partial_snapshot = (catalog["root"] / "engine-snapshot.json").is_file()
+    active_extension_presets = {
+        item_id: item for item_id, item in extension_presets.items()
+        if not partial_snapshot or set(item.get("profiles", [])).intersection(catalog["profiles"])
+    }
+    declared = {
+        "tokens": set(manifest.get("tokens", [])),
+        "characterProfiles": set(manifest.get("characterProfiles", [])),
+        "presets": set(manifest.get("presets", [])),
+    }
+    actual = {
+        "tokens": set(extension_tokens),
+        "characterProfiles": set(extension_characters),
+        "presets": set(extension_presets),
+    }
+    if declared != actual:
+        raise ContractError("extension declarations do not match bundled JSON objects")
+    collections = (
+        ("tokens", extension_tokens, "mz.design-tokens/1"),
+        ("characters", extension_characters, "mz.character-profile/1"),
+        ("presets", active_extension_presets, "mz.style-preset/1"),
+    )
+    for target_name, values, expected_format in collections:
+        for item_id, item in values.items():
+            if not item_id.startswith(f"{namespace}-"):
+                raise ContractError(f"extension id must use {namespace}- namespace: {item_id}")
+            if item_id in catalog[target_name]:
+                raise ContractError(f"extension cannot override public id: {item_id}")
+            if item.get("format") != expected_format:
+                raise ContractError(f"{item_id}: expected {expected_format}")
+            item["_extension"] = manifest.get("id")
+            catalog[target_name][item_id] = item
+    for preset in active_extension_presets.values():
+        for profile_id in preset.get("profiles", []):
+            if profile_id not in catalog["profiles"] and not partial_snapshot:
+                raise ContractError(f"{preset['id']}: unknown public profile {profile_id}")
+        token_id = preset.get("tokensRef")
+        if token_id and token_id not in catalog["tokens"]:
+            raise ContractError(f"{preset['id']}: unknown token set {token_id}")
+    default_character = manifest.get("defaultCharacterProfile")
+    if default_character is not None and default_character not in extension_characters:
+        raise ContractError("extension defaultCharacterProfile is not bundled")
+    validate_catalog(catalog)
+    catalog["extension"] = {
+        "id": manifest["id"],
+        "namespace": namespace,
+        "version": manifest["version"],
+        "manifestHash": digest(manifest_file),
+        "defaultCharacterProfile": default_character,
+        "root": root,
+    }
 
 
 def validate_catalog(catalog: dict[str, Any]) -> None:
     partial_snapshot = (catalog["root"] / "engine-snapshot.json").is_file()
     required = catalog["schema"].get("contracts", {})
     mappings = {
+        "mz.design-tokens/1": catalog["tokens"].values(),
+        "mz.character-profile/1": catalog["characters"].values(),
         "mz.style-source/1": catalog["sources"].values(),
         "mz.style-adapter/1": catalog["adapters"].values(),
         "mz.style-preset/1": catalog["presets"].values(),
@@ -124,6 +231,9 @@ def validate_catalog(catalog: dict[str, Any]) -> None:
         for modifier_id in preset["allowedModifiers"]:
             if modifier_id not in catalog["modifiers"]:
                 raise ContractError(f"{preset['id']}: unknown modifier {modifier_id}")
+        token_id = preset.get("tokensRef")
+        if token_id is not None and token_id not in catalog["tokens"]:
+            raise ContractError(f"{preset['id']}: unknown token set {token_id}")
         lineage = preset.get("lineage")
         if lineage is not None:
             if not isinstance(lineage, dict) or lineage.get("method") != "method-derived-original-rules":
@@ -198,7 +308,8 @@ def resolve_intent(intent: dict[str, Any], catalog: dict[str, Any] | None = None
         return _result("STYLE_CONFLICT", request, f"unknown preset: {preset_id}", asset=asset)
     if preset.get("status") != "APPROVED_FOR_SKILL_OPERATION":
         return _result("STYLE_CONFLICT", request, f"preset is registered but not enabled: {preset_id}", asset=asset, style=style)
-    if preset_id not in profile["supportedPresets"]:
+    extension_preset = preset.get("_extension") is not None and profile_id in preset.get("profiles", [])
+    if preset_id not in profile["supportedPresets"] and not extension_preset:
         return _result("UNSUPPORTED_COMBINATION", request, f"{preset_id} is not supported by {profile_id}", asset=asset, style=style, target=profile["target"])
     size = asset.get("size")
     bounds = profile["hardConstraints"].get("size")
@@ -232,12 +343,19 @@ def resolve_intent(intent: dict[str, Any], catalog: dict[str, Any] | None = None
         "rules": rules,
         "ruleSources": rule_sources,
     }
+    token_id = preset.get("tokensRef")
+    if token_id:
+        token_set = catalog["tokens"][token_id]
+        resolved_style["tokens"] = {"id": token_id, "version": token_set["version"], "roles": token_set["roles"]}
+    character_id = intent.get("characterProfile")
+    if character_id is not None and character_id not in catalog["characters"]:
+        return _result("STYLE_CONFLICT", request, f"unknown character profile: {character_id}", asset=asset, style=style)
     generation = {
         "requirements": [*CORE_RULES, *[f"{key}: {_prompt_value(value)}" for key, value in rules.items() if key != "avoid"]],
         "avoid": sorted(set(profile["hardConstraints"].get("prohibited", []) + rules.get("avoid", []))),
-        "promptBlocks": ["MZ Core", f"Asset profile: {profile_id}", f"Base preset: {preset_id}", *[f"Modifier: {item['id']}" for item in modifier_items]],
+        "promptBlocks": ["MZ Core", f"Asset profile: {profile_id}", f"Base preset: {preset_id}", *([f"Token set: {token_id}"] if token_id else []), *[f"Modifier: {item['id']}" for item in modifier_items]],
     }
-    return {
+    result = {
         "format": "mz.visual-brief/1",
         "engineVersion": ENGINE_VERSION,
         "status": "RESOLVED",
@@ -256,11 +374,37 @@ def resolve_intent(intent: dict[str, Any], catalog: dict[str, Any] | None = None
             ],
         },
     }
+    snapshot = catalog.get("snapshot")
+    if snapshot is not None:
+        result["engineCompat"] = snapshot.get("compat", {
+            "format": "mz.engine-compat/1",
+            "engineVersion": ENGINE_VERSION,
+            "target": snapshot.get("target"),
+            "snapshotHash": snapshot.get("snapshotHash"),
+            "sourceCatalogHash": snapshot.get("sourceCatalogHash"),
+        })
+    else:
+        source_catalog_hash = catalog_hash(catalog)
+        result["engineCompat"] = {
+            "format": "mz.engine-compat/1",
+            "engineVersion": ENGINE_VERSION,
+            "target": "source",
+            "snapshotHash": source_catalog_hash,
+            "sourceCatalogHash": source_catalog_hash,
+        }
+    if catalog["extension"]:
+        result["extension"] = {key: catalog["extension"][key] for key in ("id", "namespace", "version", "manifestHash")}
+        result["provenance"]["extensionManifestHash"] = catalog["extension"]["manifestHash"]
+    if character_id:
+        character = catalog["characters"][character_id]
+        result["characterProfile"] = {"id": character_id, "version": character["version"], "assets": character["assets"], "defaults": character["defaults"]}
+        result["generation"]["promptBlocks"].append(f"Character profile: {character_id}")
+    return result
 
 
 def catalog_files(catalog: dict[str, Any]) -> list[Path]:
     root = catalog["root"]
-    folders = [root / "schemas", root / "styles", root / "profiles", root / "references", root / "sources"]
+    folders = [root / "schemas", root / "styles", root / "profiles", root / "references", root / "sources", root / "tokens", root / "characters"]
     return [file for folder in folders if folder.is_dir() for file in folder.rglob("*") if file.is_file()]
 
 
@@ -283,7 +427,30 @@ def validate_brief(brief: dict[str, Any], catalog: dict[str, Any] | None = None)
             raise ContractError(f"brief missing {key}")
     profile_id = brief["asset"].get("profile")
     preset_id = brief["style"].get("preset", {}).get("id")
-    if profile_id not in catalog["profiles"] or preset_id not in catalog["profiles"][profile_id]["supportedPresets"]:
+    preset = catalog["presets"].get(preset_id)
+    extension_preset = preset is not None and preset.get("_extension") is not None and profile_id in preset.get("profiles", [])
+    if profile_id not in catalog["profiles"] or (preset_id not in catalog["profiles"][profile_id]["supportedPresets"] and not extension_preset):
         raise ContractError("brief has an unsupported profile/preset combination")
     if brief["target"] != catalog["profiles"][profile_id]["target"]:
         raise ContractError("brief target does not match profile")
+    engine_compat = brief.get("engineCompat")
+    if (
+        not isinstance(engine_compat, dict)
+        or engine_compat.get("format") != "mz.engine-compat/1"
+        or engine_compat.get("engineVersion") != ENGINE_VERSION
+        or not re.fullmatch(r"[0-9a-f]{64}", str(engine_compat.get("snapshotHash", "")))
+        or not re.fullmatch(r"[0-9a-f]{64}", str(engine_compat.get("sourceCatalogHash", "")))
+    ):
+        raise ContractError("brief Engine compatibility is missing or invalid")
+    snapshot = catalog.get("snapshot")
+    if snapshot is not None:
+        if engine_compat.get("sourceCatalogHash") != snapshot.get("sourceCatalogHash"):
+            raise ContractError("brief and target Snapshot do not share the same source catalog")
+    extension = brief.get("extension")
+    if extension is not None:
+        active = catalog.get("extension")
+        if not active or any(extension.get(key) != active.get(key) for key in ("id", "namespace", "version", "manifestHash")):
+            raise ContractError("brief extension does not match the loaded extension")
+    character = brief.get("characterProfile")
+    if character is not None and character.get("id") not in catalog["characters"]:
+        raise ContractError("brief character profile is not available")

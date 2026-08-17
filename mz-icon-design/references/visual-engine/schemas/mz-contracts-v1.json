@@ -2,12 +2,16 @@
   "format": "mz.contract-catalog/1",
   "contracts": {
     "mz.intent/1": {"required": ["format", "request", "asset", "style"]},
+    "mz.design-tokens/1": {"required": ["format", "id", "version", "roles"]},
+    "mz.character-profile/1": {"required": ["format", "id", "version", "identity", "assets", "defaults"]},
+    "mz.visual-extension/1": {"required": ["format", "id", "namespace", "version", "tokens", "characterProfiles", "presets", "files"]},
+    "mz.engine-compat/1": {"required": ["format", "engineVersion", "target", "snapshotHash", "sourceCatalogHash"]},
     "mz.style-source/1": {"required": ["format", "id", "repository", "commit", "license", "auditedFiles", "allowed", "prohibited", "notice"]},
     "mz.style-adapter/1": {"required": ["format", "id", "sourceId", "upstreamStyle", "targetPreset", "profiles", "status", "capabilities", "originalityBoundary"]},
     "mz.style-preset/1": {"required": ["format", "id", "label", "family", "version", "status", "profiles", "rules", "allowedModifiers"]},
     "mz.style-modifier/1": {"required": ["format", "id", "axis", "version", "allowedPresets", "allowedProfiles", "patch"]},
     "mz.asset-profile/1": {"required": ["format", "id", "target", "supportedPresets", "hardConstraints"]},
-    "mz.visual-brief/1": {"required": ["format", "engineVersion", "status", "request", "intent", "asset", "style", "target", "generation", "provenance"]},
+    "mz.visual-brief/1": {"required": ["format", "engineVersion", "status", "request", "intent", "asset", "style", "target", "generation", "provenance", "engineCompat"]},
     "mz.evaluation/1": {"required": ["format", "status", "checks"]},
     "mz.engine-snapshot/1": {"required": ["format", "engineVersion", "target", "files", "snapshotHash"]}
   },

@@ -157,7 +157,7 @@ def main() -> int:
                 errors.append(f"{asset_manifest.relative_to(ROOT)}: invalid asset license")
 
     manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
-    if manifest.get("format") != "mz.public-skill/1" or manifest.get("version") != "1.3.0":
+    if manifest.get("format") != "mz.public-skill/1" or manifest.get("version") != "2.0.0":
         errors.append("PUBLIC_MANIFEST.json has an unexpected format or version")
     if manifest.get("repository") != f"MuziGeek/{SKILL_ID}":
         errors.append("PUBLIC_MANIFEST.json repository mismatch")
@@ -168,10 +168,14 @@ def main() -> int:
     if skill.get("treeHash") != actual_hash:
         errors.append(f"Skill tree hash mismatch: expected {actual_hash}")
     release = manifest.get("release", {})
-    if release.get("tag") != "v1.3.0" or release.get("artifactChecksumAlgorithm") != "sha256":
+    if release.get("tag") != "v2.0.0" or release.get("artifactChecksumAlgorithm") != "sha256":
         errors.append("PUBLIC_MANIFEST.json release declaration mismatch")
     engine = manifest.get("visualEngine", {})
-    if engine.get("version") != "1.2.0" or not isinstance(engine.get("snapshotHash"), str):
+    if (
+        engine.get("version") != "2.0.0"
+        or engine.get("snapshotHash") != "222511da454932f546ae71141325edaab91fc3585e65c183f62968a7d2a9ae57"
+        or engine.get("sourceCatalogHash") != "2f74eaa8d55b4037b702c200ace510b9b9a7680c861070be0c04ee04e9824ed0"
+    ):
         errors.append("PUBLIC_MANIFEST.json Visual Engine declaration mismatch")
 
     if errors:

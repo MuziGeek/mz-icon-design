@@ -1,0 +1,9 @@
+{
+  "format": "mz.engine-compat/1",
+  "engineVersion": "2.0.0",
+  "target": "icon",
+  "snapshotHash": "222511da454932f546ae71141325edaab91fc3585e65c183f62968a7d2a9ae57",
+  "sourceCatalogHash": "2f74eaa8d55b4037b702c200ace510b9b9a7680c861070be0c04ee04e9824ed0",
+  "skillId": "mz-icon-design",
+  "skillVersion": "2.0.0"
+}
