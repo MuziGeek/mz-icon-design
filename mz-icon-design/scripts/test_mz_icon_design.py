@@ -45,7 +45,7 @@ class MzIconDesignTests(unittest.TestCase):
         explicit_realistic = run("route_request.py", "--style", "mz-realistic-v1")
         self.assertEqual(json.loads(explicit_realistic.stdout), {"mode": "spot", "style": "mz-realistic-v1"})
         default_spot = run("route_request.py", "--usage", "product categories", "--concept-count", "9")
-        self.assertEqual(json.loads(default_spot.stdout), {"mode": "spot", "style": "mz-crayon-v2"})
+        self.assertEqual(json.loads(default_spot.stdout), {"mode": "spot", "style": "mz-crayon-base-v1"})
         bare_voxel = run("route_request.py", "--usage", "voxel feature icons", "--concept-count", "9")
         self.assertEqual(json.loads(bare_voxel.stdout), {"mode": "spot", "style": "mz-block-v1"})
         oreo = run("route_request.py", "--usage", "Oreo directed voxel icon", "--concept-count", "9")
@@ -54,64 +54,64 @@ class MzIconDesignTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temp:
             brief = Path(temp) / "brief.json"
             brief.write_text(json.dumps({
-                "format": "mz.visual-brief/1", "engineVersion": "1.2.0", "status": "RESOLVED",
+                "format": "mz.visual-brief/1", "engineVersion": "2.0.0", "status": "RESOLVED",
                 "request": {"summary": "search"}, "intent": {}, "asset": {"profile": "icon-ui"},
                 "style": {"preset": {"id": "mz-filled-v1"}}, "target": {"skill": "mz-icon-design", "mode": "svg"},
-                "generation": {}, "provenance": {}
+                "generation": {}, "provenance": {}, "engineCompat": {"format": "mz.engine-compat/1", "engineVersion": "2.0.0", "target": "icon", "snapshotHash": "222511da454932f546ae71141325edaab91fc3585e65c183f62968a7d2a9ae57", "sourceCatalogHash": "2f74eaa8d55b4037b702c200ace510b9b9a7680c861070be0c04ee04e9824ed0"}
             }), encoding="utf-8")
             result = run("route_request.py", "--brief", brief)
             self.assertEqual(json.loads(result.stdout), {"mode": "svg", "style": "mz-filled-v1"})
             self.assertEqual(run("validate_visual_brief.py", brief).returncode, 0)
             brief.write_text(json.dumps({
-                "format": "mz.visual-brief/1", "engineVersion": "1.2.0", "status": "RESOLVED",
+                "format": "mz.visual-brief/1", "engineVersion": "2.0.0", "status": "RESOLVED",
                 "request": {"summary": "soft isometric miniature"}, "intent": {}, "asset": {"profile": "icon-spot"},
                 "style": {"preset": {"id": "mz-isometric-v1"}}, "target": {"skill": "mz-icon-design", "mode": "spot"},
-                "generation": {}, "provenance": {}
+                "generation": {}, "provenance": {}, "engineCompat": {"format": "mz.engine-compat/1", "engineVersion": "2.0.0", "target": "icon", "snapshotHash": "222511da454932f546ae71141325edaab91fc3585e65c183f62968a7d2a9ae57", "sourceCatalogHash": "2f74eaa8d55b4037b702c200ace510b9b9a7680c861070be0c04ee04e9824ed0"}
             }), encoding="utf-8")
             result = run("route_request.py", "--brief", brief)
             self.assertEqual(json.loads(result.stdout), {"mode": "spot", "style": "mz-isometric-v1"})
             self.assertEqual(run("validate_visual_brief.py", brief).returncode, 0)
             brief.write_text(json.dumps({
-                "format": "mz.visual-brief/1", "engineVersion": "1.2.0", "status": "RESOLVED",
+                "format": "mz.visual-brief/1", "engineVersion": "2.0.0", "status": "RESOLVED",
                 "request": {"summary": "colour blocks"}, "intent": {}, "asset": {"profile": "icon-spot"},
                 "style": {"preset": {"id": "mz-colorblock-v1"}}, "target": {"skill": "mz-icon-design", "mode": "spot"},
-                "generation": {}, "provenance": {}
+                "generation": {}, "provenance": {}, "engineCompat": {"format": "mz.engine-compat/1", "engineVersion": "2.0.0", "target": "icon", "snapshotHash": "222511da454932f546ae71141325edaab91fc3585e65c183f62968a7d2a9ae57", "sourceCatalogHash": "2f74eaa8d55b4037b702c200ace510b9b9a7680c861070be0c04ee04e9824ed0"}
             }), encoding="utf-8")
             result = run("route_request.py", "--brief", brief)
             self.assertEqual(json.loads(result.stdout), {"mode": "spot", "style": "mz-colorblock-v1"})
             self.assertEqual(run("validate_visual_brief.py", brief).returncode, 0)
             brief.write_text(json.dumps({
-                "format": "mz.visual-brief/1", "engineVersion": "1.2.0", "status": "RESOLVED",
+                "format": "mz.visual-brief/1", "engineVersion": "2.0.0", "status": "RESOLVED",
                 "request": {"summary": "die-cut sticker icon"}, "intent": {}, "asset": {"profile": "icon-spot"},
                 "style": {"preset": {"id": "mz-sticker-v1"}}, "target": {"skill": "mz-icon-design", "mode": "spot"},
-                "generation": {}, "provenance": {}
+                "generation": {}, "provenance": {}, "engineCompat": {"format": "mz.engine-compat/1", "engineVersion": "2.0.0", "target": "icon", "snapshotHash": "222511da454932f546ae71141325edaab91fc3585e65c183f62968a7d2a9ae57", "sourceCatalogHash": "2f74eaa8d55b4037b702c200ace510b9b9a7680c861070be0c04ee04e9824ed0"}
             }), encoding="utf-8")
             result = run("route_request.py", "--brief", brief)
             self.assertEqual(json.loads(result.stdout), {"mode": "spot", "style": "mz-sticker-v1"})
             self.assertEqual(run("validate_visual_brief.py", brief).returncode, 0)
             brief.write_text(json.dumps({
-                "format": "mz.visual-brief/1", "engineVersion": "1.2.0", "status": "RESOLVED",
+                "format": "mz.visual-brief/1", "engineVersion": "2.0.0", "status": "RESOLVED",
                 "request": {"summary": "cartoon icon"}, "intent": {}, "asset": {"profile": "icon-spot"},
                 "style": {"preset": {"id": "mz-cartoon-v1"}}, "target": {"skill": "mz-icon-design", "mode": "spot"},
-                "generation": {}, "provenance": {}
+                "generation": {}, "provenance": {}, "engineCompat": {"format": "mz.engine-compat/1", "engineVersion": "2.0.0", "target": "icon", "snapshotHash": "222511da454932f546ae71141325edaab91fc3585e65c183f62968a7d2a9ae57", "sourceCatalogHash": "2f74eaa8d55b4037b702c200ace510b9b9a7680c861070be0c04ee04e9824ed0"}
             }), encoding="utf-8")
             result = run("route_request.py", "--brief", brief)
             self.assertEqual(json.loads(result.stdout), {"mode": "spot", "style": "mz-cartoon-v1"})
             self.assertEqual(run("validate_visual_brief.py", brief).returncode, 0)
             brief.write_text(json.dumps({
-                "format": "mz.visual-brief/1", "engineVersion": "1.2.0", "status": "RESOLVED",
+                "format": "mz.visual-brief/1", "engineVersion": "2.0.0", "status": "RESOLVED",
                 "request": {"summary": "animal badge icon"}, "intent": {}, "asset": {"profile": "icon-spot"},
                 "style": {"preset": {"id": "mz-animal-badge-v1"}}, "target": {"skill": "mz-icon-design", "mode": "spot"},
-                "generation": {}, "provenance": {}
+                "generation": {}, "provenance": {}, "engineCompat": {"format": "mz.engine-compat/1", "engineVersion": "2.0.0", "target": "icon", "snapshotHash": "222511da454932f546ae71141325edaab91fc3585e65c183f62968a7d2a9ae57", "sourceCatalogHash": "2f74eaa8d55b4037b702c200ace510b9b9a7680c861070be0c04ee04e9824ed0"}
             }), encoding="utf-8")
             result = run("route_request.py", "--brief", brief)
             self.assertEqual(json.loads(result.stdout), {"mode": "spot", "style": "mz-animal-badge-v1"})
             self.assertEqual(run("validate_visual_brief.py", brief).returncode, 0)
             brief.write_text(json.dumps({
-                "format": "mz.visual-brief/1", "engineVersion": "1.2.0", "status": "RESOLVED",
+                "format": "mz.visual-brief/1", "engineVersion": "2.0.0", "status": "RESOLVED",
                 "request": {"summary": "realistic object icon"}, "intent": {}, "asset": {"profile": "icon-spot"},
                 "style": {"preset": {"id": "mz-realistic-v1"}}, "target": {"skill": "mz-icon-design", "mode": "spot"},
-                "generation": {}, "provenance": {}
+                "generation": {}, "provenance": {}, "engineCompat": {"format": "mz.engine-compat/1", "engineVersion": "2.0.0", "target": "icon", "snapshotHash": "222511da454932f546ae71141325edaab91fc3585e65c183f62968a7d2a9ae57", "sourceCatalogHash": "2f74eaa8d55b4037b702c200ace510b9b9a7680c861070be0c04ee04e9824ed0"}
             }), encoding="utf-8")
             result = run("route_request.py", "--brief", brief)
             self.assertEqual(json.loads(result.stdout), {"mode": "spot", "style": "mz-realistic-v1"})

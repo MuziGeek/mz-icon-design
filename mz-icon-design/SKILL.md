@@ -1,6 +1,6 @@
 ---
 name: mz-icon-design
-description: Create, extend, restyle, or audit MZ Icon Design System assets. Use when the user explicitly asks for Muzi or MZ icons, a 16-32px MZ line or filled UI SVG icon, or a coherent MZ crayon, isometric block, soft isometric miniature, matte soft-3D, Colorblock, Macro Voxel, Sticker, Cartoon, Animal Badge, or Realistic object spot-icon set for sections, features, categories, marketing, or empty states.
+description: Create, extend, restyle, or audit public MZ Icon Design System assets. Use for 16-32px MZ line or filled UI SVG icons, coherent neutral crayon or block spot icons, or approved MZ soft-3D, Colorblock, Isometric, Macro Voxel, Sticker, Cartoon, Animal Badge, and Realistic object sets. Accept a private style only through an explicit validated mz.visual-extension/1 handoff.
 ---
 
 # MZ Icon Design System
@@ -15,7 +15,7 @@ Extract `concepts`, `usage`, `display_size`, `mode`, `style`, `output_dir`, and 
 | --- | --- |
 | One functional UI icon, navigation, button, or 16-32px target | `svg`, `mz-line-v1` |
 | Explicitly asks for a filled UI icon or solid glyph | `svg`, `mz-filled-v1` |
-| Section, feature, category, marketing, empty state, or 48-256px set | `spot`, `mz-crayon-v2` |
+| Section, feature, category, marketing, empty state, or 48-256px set | `spot`, `mz-crayon-base-v1` |
 | Explicitly asks for voxel, isometric, or block-like space | `spot`, `mz-block-v1` |
 | Explicitly asks for a soft 3D or matte clay icon | `spot`, `mz-soft-3d-v1` |
 | Explicitly asks for a soft isometric miniature | `spot`, `mz-isometric-v1` |
@@ -38,7 +38,7 @@ An explicit user mode or style always wins. Default a single unspecified icon to
 
 ## MZ Visual Engine handoff
 
-When the user supplies an `mz.visual-brief/1`, validate it first with `python scripts/validate_visual_brief.py <brief.json>`. A resolved brief selects the existing mode and style; it never bypasses the SVG/PNG QA, manifest, originality, or user-review requirements above. Keep legacy requests without a brief on the existing routing path.
+When the user supplies an `mz.visual-brief/1`, validate it first with `python scripts/validate_visual_brief.py <brief.json>`. For a namespaced private Preset, add the explicit `--extension <directory>` supplied by its invoking Skill. A resolved brief selects the existing mode and style; it never bypasses SVG/PNG QA, manifest, originality, or user review. Never discover an Extension automatically.
 
 The bundled `references/visual-engine/` snapshot is the versioned source for MZ Core, Presets, Modifiers, and Asset Profiles. Do not edit it by hand; replace it only with an Engine export after verifying `python references/visual-engine/scripts/verify_snapshot.py references/visual-engine`.
 
@@ -61,7 +61,7 @@ Read the matching track reference, inspect the input, and report every rule brea
 
 - Keep generated output outside this Skill directory.
 - Use `DRAFT`, `VALIDATION_FAILED`, `GENERATION_BLOCKED`, or `READY_FOR_REVIEW` in manifests. Never claim `ACCEPTED` without user confirmation.
-- Keep the crayon baseline assets intact. They are reference material, not templates to trace.
+- Keep public calibration assets generic. Never copy private identity or Extension assets into this Skill.
 - Do not publish, upload, install plugins, create automations, or use a paid external image API.
 
 ## Resources
@@ -71,4 +71,4 @@ Read the matching track reference, inspect the input, and report every rule brea
 - [Spot track](references/spot-track.md): sheet, slicing, and style selection instructions.
 - [QA checklist](references/qa.md): visual and mechanical release criteria.
 - [Batch contract](references/batch-schema.json): `mz.icon-batch/1` manifest fields.
-- [Crayon spec](references/styles/mz-crayon-v2.json), [block spec](references/styles/mz-block-v1.json), and the approved Filled, Soft 3D, Colorblock, Isometric, Macro Voxel, Sticker, Cartoon, Animal Badge, and Realistic specifications in `references/visual-engine/styles/presets/`: frozen production specifications.
+- [Neutral crayon spec](references/styles/mz-crayon-base-v1.json), [block spec](references/styles/mz-block-v1.json), and the approved Filled, Soft 3D, Colorblock, Isometric, Macro Voxel, Sticker, Cartoon, Animal Badge, and Realistic specifications in `references/visual-engine/styles/presets/`.

@@ -2,6 +2,6 @@
   "format": "mz.asset-profile/1",
   "id": "icon-spot",
   "target": {"skill": "mz-icon-design", "mode": "spot"},
-  "supportedPresets": ["mz-crayon-v2", "mz-block-v1", "mz-soft-3d-v1", "mz-colorblock-v1", "mz-isometric-v1", "mz-voxel-macro-v1", "mz-sticker-v1", "mz-cartoon-v1", "mz-animal-badge-v1", "mz-realistic-v1"],
+  "supportedPresets": ["mz-crayon-base-v1", "mz-block-v1", "mz-soft-3d-v1", "mz-colorblock-v1", "mz-isometric-v1", "mz-voxel-macro-v1", "mz-sticker-v1", "mz-cartoon-v1", "mz-animal-badge-v1", "mz-realistic-v1"],
   "hardConstraints": {"format": "PNG", "size": {"minimum": 48, "maximum": 256}, "background": "transparent after slicing", "prohibited": ["third-party marks", "text watermarks"]}
 }

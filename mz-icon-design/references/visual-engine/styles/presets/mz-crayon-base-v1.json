@@ -1,0 +1,23 @@
+{
+  "format": "mz.style-preset/1",
+  "id": "mz-crayon-base-v1",
+  "label": "MZ Neutral Crayon Base V1",
+  "family": "crayon",
+  "version": "1.0.0",
+  "status": "APPROVED_FOR_SKILL_OPERATION",
+  "profiles": ["icon-spot", "knowledge-illustration"],
+  "tokensRef": "mz-neutral-core-v1",
+  "allowedModifiers": ["mz-quiet-v1"],
+  "rules": {
+    "identity": ["handcrafted", "neutral", "quiet", "adaptable"],
+    "geometry": "soft original geometry with controlled unevenness and no recurring mascot",
+    "stroke": "uneven charcoal dry-media outline with rounded outer contours",
+    "color": "use the semantic roles in mz-neutral-core-v1; do not import a private identity palette",
+    "texture": "visible restrained wax or dry-crayon grain on a clean neutral canvas",
+    "composition": "one clear metaphor, generous quiet area, flat front-facing construction",
+    "depth": "flat",
+    "detailBudget": "one metaphor and no more than four meaningful icon parts; one judgment per illustration",
+    "avoid": ["fixed character identity", "private identity assets", "gradients", "cast shadows", "3D polish", "logos", "detached decoration", "third-party visual signatures"]
+  },
+  "goldens": {"status": "MIGRATED_TO_GENERIC_CONTRACT", "reason": "The v2 public base contains no private identity or private palette calibration asset; visual acceptance remains target-Skill review work."}
+}

@@ -1,0 +1,16 @@
+{
+  "format": "mz.design-tokens/1",
+  "id": "mz-neutral-core-v1",
+  "version": "1.0.0",
+  "roles": {
+    "canvas": "#F7F4ED",
+    "ink": "#263238",
+    "primary": "#8A6F47",
+    "secondary": "#607D7A",
+    "accent": "#B56B4A",
+    "muted": "#77736B",
+    "lineCharacter": "controlled handmade",
+    "cornerCharacter": "soft but not mascot-like",
+    "texture": "restrained dry-media grain"
+  }
+}

@@ -1,12 +1,12 @@
 {
   "format": "mz.engine-snapshot/1",
-  "engineVersion": "1.2.0",
+  "engineVersion": "2.0.0",
   "target": "icon",
-  "sourceCatalogHash": "aff0b457985263f3447a71feb32e72f0f5310a7b0191adeccb7b336ea5a6da58",
+  "sourceCatalogHash": "2f74eaa8d55b4037b702c200ace510b9b9a7680c861070be0c04ee04e9824ed0",
   "files": [
     {
       "path": "schemas/mz-contracts-v1.json",
-      "sha256": "6c7adb62cc6dbc39083e617a49324810f7d1f9d4fcc96ea8b76a63cda152ef2d"
+      "sha256": "59341b44ab0032bbe9f4f3c7f2e4e80f391e98875cb0b0c5974fa9c8ed6660b4"
     },
     {
       "path": "references/core.md",
@@ -14,15 +14,15 @@
     },
     {
       "path": "references/contracts.md",
-      "sha256": "e86204ae9f1c5d4e31f81fa4e96349b03ff7c8b2c647463fb222b84cda772dbd"
+      "sha256": "39e252987964fbd438550465dc4dab6ac6ee55d2179a89f0d285308644ed5ee9"
     },
     {
       "path": "references/evaluation.md",
-      "sha256": "e9ef6de5e1f81382cbebe1793ad54e9601e5d5905f68f4d740b95643907d0902"
+      "sha256": "5c6c58fff4c687e0b6cfff8578fafba1796b194199824566ea1c2f7d17e64f1a"
     },
     {
       "path": "scripts/engine_lib.py",
-      "sha256": "0f7ca729385b1e9ff0f7eb249e0e104acab9ab2fa16e118666b66c1a1fa55b1d"
+      "sha256": "6bea61145b76605c6372f68afbf9411ea3cfcfc862dbdce4608e0cb74c0e85c2"
     },
     {
       "path": "scripts/verify_snapshot.py",
@@ -45,8 +45,8 @@
       "sha256": "4812058405358525286c36966308db830a4591cffa5bfd5a3ff9c4ec05e7a92d"
     },
     {
-      "path": "styles/presets/mz-crayon-v2.json",
-      "sha256": "d9d0883924a5a5349a5a9c3e6e9a55f02f016f3035ef53ec6398653dedf69188"
+      "path": "styles/presets/mz-crayon-base-v1.json",
+      "sha256": "8b12a30433e0bea91f68570f71d34e0c1858e5db125364717350f52c207ee924"
     },
     {
       "path": "styles/presets/mz-filled-v1.json",
@@ -78,19 +78,23 @@
     },
     {
       "path": "styles/modifiers/mz-handcrafted-v1.json",
-      "sha256": "89ea31dbd0292dee9591e469896ac78a64cccd724161a45f2b5d2c9c246d3d9b"
+      "sha256": "97c9b210e0b61cd1edfc8485e2e86a1c32961a590717e529c33e19302f2b45f4"
     },
     {
       "path": "styles/modifiers/mz-quiet-v1.json",
-      "sha256": "4b678d2c06f8d94632cec3f2d355ed571b9f99f784a1d0a981ccd82c92cf747d"
+      "sha256": "aa36851d45bb9c328b149450b1cef88c0c6151cf4b0b2407d89b9a7ac526dec6"
     },
     {
       "path": "styles/modifiers/mz-warm-v1.json",
-      "sha256": "961f596145a93a2eedc0c617341aca06f8a475b6f0150b89abbc641b26b7887e"
+      "sha256": "a167a4e540e9e19fb6c357ca683052be30ba9c6dd316ecbbf822b76e843985bf"
+    },
+    {
+      "path": "tokens/mz-neutral-core-v1.json",
+      "sha256": "d918c7e42b413d643f1fd113b2642b88f643cd99a94b5cb8a8ccae3d528a49a3"
     },
     {
       "path": "profiles/icon-spot.json",
-      "sha256": "45f3d9d07d16caf58eddc03e4a1282355421b7d9c940385d8fc7fd80d6e556f6"
+      "sha256": "9e8b50b908c69c5788108b767f46ed8145d7ea521d90340f5491c3cb90755830"
     },
     {
       "path": "profiles/icon-ui.json",
@@ -149,5 +153,12 @@
       "sha256": "ee1d0ecdef78d073832d1151f6b3bf57973bbf52305fa9ee6149af426e9dc279"
     }
   ],
-  "snapshotHash": "814ca7b969d317bb0d0e45f0f276fb1317e88eeeb63d05431643c32ae4df70cb"
+  "snapshotHash": "222511da454932f546ae71141325edaab91fc3585e65c183f62968a7d2a9ae57",
+  "compat": {
+    "format": "mz.engine-compat/1",
+    "engineVersion": "2.0.0",
+    "target": "icon",
+    "snapshotHash": "222511da454932f546ae71141325edaab91fc3585e65c183f62968a7d2a9ae57",
+    "sourceCatalogHash": "2f74eaa8d55b4037b702c200ace510b9b9a7680c861070be0c04ee04e9824ed0"
+  }
 }

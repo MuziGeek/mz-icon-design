@@ -15,7 +15,7 @@ Slice each accepted cell into 512x512 RGBA PNG files. Run the supplied slicer, P
 
 ## Style selection
 
-- `mz-crayon-v2`: default MZ brand spot style. Use the bundled baseline only as a style authority.
+- `mz-crayon-base-v1`: default public Spot style. Use object-led neutral dry-crayon rules with no recurring mascot or bundled private identity.
 - `mz-block-v1`: use when the request needs isometric, block-like spatial structure. Keep its MZ palette, matte crayon treatment, and low-density block budget.
 - `mz-soft-3d-v1`: use only for explicit soft-3D or matte-clay requests. Keep one compact original object, the shared three-quarter camera and broad soft light; prohibit glass, chrome, ground shadows, labels, and logos.
 - `mz-colorblock-v1`: use only for explicit Colorblock or contrasting-colour-block requests. Keep one original two-dimensional metaphor, no outline, at most three MZ chromatic blocks, and only 8-12% shallow tonal modelling; prohibit shadows, material texture, and 3D extrusion.
